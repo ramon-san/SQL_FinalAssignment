@@ -6,3 +6,12 @@
 //
 
 #include <stdio.h>
+#include "main_view.h"
+
+int main(int argc, char *argv[]){
+    
+    main_view_login();
+    main_view_menu();
+    
+    return(0);
+}
