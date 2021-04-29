@@ -67,7 +67,7 @@ void main_view_menu(void){
         }
         else if(option == 'A'){
             system("clear");
-            printf("\n\tComing soon...\n");
+            admin_view_menu();
          }
         else if(option == 'R'){
             system("clear");

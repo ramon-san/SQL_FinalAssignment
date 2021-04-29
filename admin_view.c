@@ -1,0 +1,51 @@
+//
+//  admin_view.c
+//  
+//
+//  Created by Ramon Orraca on 29/04/21.
+//
+
+#include "admin_view.h"
+
+/*
+ *
+ * The function menu gives the user admin action posibilities.
+ *
+
+ * @returns
+        void
+*/
+void admin_view_menu(void){
+    char option = '_';
+    
+    while(option != 'B'){
+        printf("\n\tPlease select one of the following options and click [Enter]: \n");
+        printf("\n\t  [S]how user info\n\t  [F]ind user\n\t  [M]odify user info\n\t  [B]ack to main\n\n   -> ");
+        scanf(" %c", &option);
+        option = toupper(option);
+
+
+        if(option == 'B'){
+            system("clear");
+            printf("\n\tBack to main...\n");
+        }
+        else if(option == 'S'){
+            system("clear");
+            printf("\n\tComing soon...\n");
+         }
+        else if(option == 'F'){
+            system("clear");
+            printf("\n\tComing soon...\n");
+         }
+        else if(option == 'M'){
+            system("clear");
+            printf("\n\tComing soon...\n");
+         }
+        else{
+            system("clear");
+            printf("\n\t'%c' is not a valid option.\n", option);
+        }
+    }
+    
+    return;
+}

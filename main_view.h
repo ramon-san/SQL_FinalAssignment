@@ -13,6 +13,8 @@
 #include <string.h>
 #include <ctype.h>
 
+#include "admin_view.h"
+
 void main_view_login(void);
 void main_view_menu(void);
 
