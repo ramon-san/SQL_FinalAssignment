@@ -52,7 +52,7 @@ void main_view_login(void){
         void
 */
 void main_view_menu(void){
-    char option = '_';
+    char option = '0';
     
     while(option != 'E'){
         printf("\n\tPlease select one of the following options and click [Enter]: \n");
@@ -71,7 +71,7 @@ void main_view_menu(void){
          }
         else if(option == 'R'){
             system("clear");
-            printf("\n\tComing soon...\n");
+            register_view_menu();
          }
         else if(option == 'S'){
             system("clear");

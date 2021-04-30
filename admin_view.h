@@ -12,6 +12,8 @@
 #include <stdlib.h>
 #include <ctype.h>
 
+/* Function prototypes */
+
 void admin_view_menu(void);
 
 #endif /* admin_view_h */

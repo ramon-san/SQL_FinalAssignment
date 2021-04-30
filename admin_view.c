@@ -16,7 +16,7 @@
         void
 */
 void admin_view_menu(void){
-    char option = '_';
+    char option = '0';
     
     while(option != 'B'){
         printf("\n\tPlease select one of the following options and click [Enter]: \n");
