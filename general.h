@@ -9,7 +9,9 @@
 #define general_h
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
+//#include <mysql/mysql.h>
 
 /* Structure definition */
 
@@ -20,7 +22,7 @@ typedef struct user{
 
 /* Function prototypes */
 
-int verify_date_format(char date[11]);
-int verify_int_format(int to_verify, int min, int max);
+size_t verify_date_format(char date[11]);
+size_t verify_int_format(int to_verify, int min, int max);
 
 #endif /* general_h */

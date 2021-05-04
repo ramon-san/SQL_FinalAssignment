@@ -7,9 +7,10 @@
 
 #include "general.h"
 
-int verify_date_format(char date[11]){
+size_t verify_date_format(char date[11]){
     char day[4], month[4], year[5];
-    int i, i_day, i_month, i_year, verifier = 1;
+    int i, i_day, i_month, i_year;
+    size_t verifier = 1;
     
     for(i = 0; i<3; i++){
         day[i] = date[i];
@@ -33,8 +34,8 @@ int verify_date_format(char date[11]){
     return(verifier);
 }
 
-int verify_int_format(int to_verify, int min, int max){
-    int verifier = 1;
+size_t verify_int_format(int to_verify, int min, int max){
+    size_t verifier = 1;
     
     if(to_verify < min || to_verify > max){
         verifier = 0;
@@ -43,3 +44,5 @@ int verify_int_format(int to_verify, int min, int max){
     
     return(verifier);
 }
+
+
