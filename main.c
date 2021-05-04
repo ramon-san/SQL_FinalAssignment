@@ -10,10 +10,10 @@
 #include "general_mysql.h"
 
 int main(int argc, char *argv[]){
-//    MYSQL mysql;
+    MYSQL mysql;
     
-//    mysql_init(&mysql);
-    general_mysql_get_info();
+    mysql_init(&mysql);
+    general_mysql_connections();
 //    general_get_mysql_info();
     main_view_login();
     main_view_menu();

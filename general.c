@@ -7,6 +7,18 @@
 
 #include "general.h"
 
+/*
+ *
+ * The function verifies the date format.
+ *
+ * @params
+ *      date (string):
+            This is the date the user is trying to add.
+
+ * @returns
+        verifier (size_t)
+            This is numeric variable verifies the function's output.
+*/
 size_t verify_date_format(char date[11]){
     char day[4], month[4], year[5];
     int i, i_day, i_month, i_year;
@@ -34,6 +46,22 @@ size_t verify_date_format(char date[11]){
     return(verifier);
 }
 
+/*
+ *
+ * The function verifies the int format.
+ *
+ * @params
+ *      to_verify (int):
+            This is the int the user is trying to add.
+        min (int):
+            This is the minimum value the int can recibe.
+        max (int):
+            This is the maximum value the int can recibe.
+
+ * @returns
+        verifier (size_t)
+            This is numeric variable verifies the function's output.
+*/
 size_t verify_int_format(int to_verify, int min, int max){
     size_t verifier = 1;
     

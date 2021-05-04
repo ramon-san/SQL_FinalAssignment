@@ -3,7 +3,7 @@
 .PHONY = all clean PRINT
 
 CC = gcc
-LINKERS = -lm
+LINKERS = -lnsl -lm -lz -lmysqlclient
 FLAGS = -C0
 
 #variables
