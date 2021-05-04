@@ -11,13 +11,15 @@
 
 int main(int argc, char *argv[]){
     MYSQL mysql;
+    char query[180];
     
+    strcpy(query, "INSERT INTO Consultations VALUES(17,'cold','2021/07/28',119,97,'Vitamin C',600,6,5);");
     mysql_init(&mysql);
-    general_mysql_connections();
-//    general_get_mysql_info();
+    general_mysql_connect_mysql_info(&mysql);
+    general_mysql_use_query(&mysql, query);
     main_view_login();
     main_view_menu();
-//    mysql_close(&mysql);
+    mysql_close(&mysql);
     
     return(0);
 }

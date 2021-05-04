@@ -15,5 +15,6 @@
 /* Function prototypes */
 
 void general_mysql_connect_mysql_info(MYSQL *mysql);
+void general_mysql_use_query(MYSQL *mysql, char *query);
 
 #endif /* general_mysql_h */

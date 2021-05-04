@@ -38,3 +38,13 @@ void general_mysql_connect_mysql_info(MYSQL *mysql){
     return;
 }
 
+void general_mysql_use_query(MYSQL *mysql, char *query){
+
+    strcpy(buffer, query);
+    if(mysql_query(mysql,buffer) ){
+        fprintf(stderr,"Error processing query \"%s\" Error: %s\n", buffer, mysql_error(mysql));
+        exit(1);
+    }
+    
+    return;
+}
