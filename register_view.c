@@ -28,7 +28,7 @@ void register_view_menu(void){
     printf("\n\t  Mother surname: ");
     scanf("%s", _user.mother_surname);
     while(verifier == 0){
-        printf("\n\t  Date of birth (MM/DD/YYY): ");
+        printf("\n\t  Date of birth (YYYY/MM/DD): ");
         scanf("%s", _user.date_of_birth);
         verifier = verify_date_format(_user.date_of_birth);
     }
