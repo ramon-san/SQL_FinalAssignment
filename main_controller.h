@@ -8,6 +8,9 @@
 #ifndef main_controller_h
 #define main_controller_h
 
+#include "general_mysql.h"
 #include <stdio.h>
+
+void main_controller_save_info(MYSQL *mysql, USER_INFO *info);
 
 #endif /* main_controller_h */

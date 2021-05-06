@@ -74,13 +74,13 @@ void general_mysql_print_result_rows(MYSQL_RES **result){
 
 }
 
-int general_mysql_verify_user(MYSQL **mysql, MYSQL_RES **result, char *query){
+int general_mysql_verify_user(MYSQL *mysql, MYSQL_RES **result, char *query){
     MYSQL_ROW row;
     int verifier=0;
 
-    general_mysql_use_query(*mysql, query);
-    if(!(*result = mysql_store_result(*mysql))){
-        fprintf(stderr, "Error storing results: Error: %s", mysql_error(*mysql));
+    general_mysql_use_query(mysql, query);
+    if(!(*result = mysql_store_result(mysql))){
+        fprintf(stderr, "Error storing results: Error: %s", mysql_error(mysql));
         exit(1);
     }
 
@@ -94,3 +94,20 @@ int general_mysql_verify_user(MYSQL **mysql, MYSQL_RES **result, char *query){
 
     return(verifier);
 }
+
+void general_mysql_save_info(USER_INFO **info, MYSQL_RES **result){
+    MYSQL_ROW row;
+    int i;
+
+    while(row = mysql_fetch_row(*result)){
+
+        strcpy((*info)->name, row[0]);
+        strcpy((*info)->email, row[1]);
+        (*info)->position = atoi(row[2]);
+        printf("\n");
+
+        fputc('\n', stdout);
+    }
+
+}
+

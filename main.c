@@ -10,14 +10,13 @@
 #include "general_mysql.h"
 
 int main(int argc, char *argv[]){
-    MYSQL mysql;
-    USER_INFO current_user;
+    BROWSER browser;
 
-    mysql_init(&mysql);
-    general_mysql_connect_mysql_info(&mysql);
-    main_view_login(&mysql, &current_user);
-    main_view_menu();
-    mysql_close(&mysql);
-    
+    mysql_init(&browser.mysql);
+    general_mysql_connect_mysql_info(&browser.mysql);
+    main_view_login(&browser);
+    main_view_menu(&browser);
+    mysql_close(&browser.mysql);
+
     return(0);
 }

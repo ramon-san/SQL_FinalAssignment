@@ -15,23 +15,23 @@
  * @returns
         void
 */
-void main_view_login(MYSQL *mysql, USER_INFO *info){
+void main_view_login(BROWSER *browser){
     char password[30], query[200];
     size_t verifier = 0;
     MYSQL_RES *result;
 
     system("clear");
-    
+
     while(verifier == 0){
         printf("\n\tEmail: ");
-        scanf("%s", info->email);
+        scanf("%s", browser->info.email);
         printf("\n\tPassword: ");
         scanf("%s", password);
 
-        sprintf(query,"SELECT email, password FROM pf_employees WHERE email = '%s' AND password = '%s'", info->email, password);
-//	info = main_control_save_info(info->email);
-        verifier = general_mysql_verify_user(&mysql, &result, query);
+        sprintf(query,"SELECT email, password FROM pf_employees WHERE email = '%s' AND password = '%s'", browser->info.email, password);
+        verifier = general_mysql_verify_user(&browser->mysql, &result, query);
         general_mysql_print_result_rows(&result);
+        main_controller_save_info(&browser->mysql, &browser->info);
     }
 
     return;
@@ -45,7 +45,7 @@ void main_view_login(MYSQL *mysql, USER_INFO *info){
  * @returns
         void
 */
-void main_view_menu(void){
+void main_view_menu(BROWSER *browser){
     char option = '0';
     
     while(option != 'E'){
@@ -61,7 +61,8 @@ void main_view_menu(void){
         }
         else if(option == 'A'){
             system("clear");
-            admin_view_menu();
+	    if(browser->info.position == 1) printf("\n\tYou don't have an admin account.\n");
+            else admin_view_menu();
          }
         else if(option == 'R'){
             system("clear");

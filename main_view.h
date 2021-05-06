@@ -16,11 +16,12 @@
 
 #include "admin_view.h"
 #include "register_view.h"
+#include "main_controller.h"
 #include "general_mysql.h"
 
 /* Function prototypes */
 
-void main_view_login(MYSQL *mysql, USER_INFO *info);
-void main_view_menu(void);
+void main_view_login(BROWSER *browser);
+void main_view_menu(BROWSER *browser);
 
 #endif /* main_view_h */
