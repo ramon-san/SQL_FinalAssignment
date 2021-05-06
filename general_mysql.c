@@ -73,3 +73,24 @@ void general_mysql_print_result_rows(MYSQL_RES **result){
     }
 
 }
+
+int general_mysql_verify_user(MYSQL **mysql, MYSQL_RES **result, char *query){
+    MYSQL_ROW row;
+    int verifier=0;
+
+    general_mysql_use_query(*mysql, query);
+    if(!(*result = mysql_store_result(*mysql))){
+        fprintf(stderr, "Error storing results: Error: %s", mysql_error(*mysql));
+        exit(1);
+    }
+
+    while(row = mysql_fetch_row(*result)){
+	verifier = 1;
+    }
+    if(verifier == 0){
+	system("clear");
+	printf("\n\n\tEl usuario y/o contraseña que ingreso son incorrecto.\n");
+    }
+
+    return(verifier);
+}

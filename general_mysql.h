@@ -18,5 +18,6 @@ void general_mysql_connect_mysql_info(MYSQL *mysql);
 void general_mysql_use_query(MYSQL *mysql, char *query);
 void general_mysql_get_result(MYSQL *mysql, MYSQL_RES **result, char *query);
 void general_mysql_print_result_rows(MYSQL_RES **result);
+int general_mysql_verify_user(MYSQL **mysql, MYSQL_RES **result, char *query);
 
 #endif /* general_mysql_h */

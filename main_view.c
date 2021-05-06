@@ -15,20 +15,24 @@
  * @returns
         void
 */
-void main_view_login(void){
-    char username[25];
-    char _password[25];
+void main_view_login(MYSQL *mysql){
+    char email[30], _password[30], query[200];
     size_t verifier = 0;
-    
+    MYSQL_RES *result;
+
     system("clear");
     
     while(verifier == 0){
         printf("\n\tUsername: ");
-        scanf("%s", username);
+        scanf("%s", email);
         printf("\n\tPassword: ");
         scanf("%s", _password);
 
-        if(strcmp(username, "Ramon-san") || strcmp(_password, "HelloWorld!")){
+        sprintf(query,"SELECT email, password FROM pf_employees WHERE email = '%s' AND password = '%s'", email, _password);
+//	strcpy(query, "SELECT email, password FROM pf_employees");
+        verifier = general_mysql_verify_user(&mysql, &result, query);
+        general_mysql_print_result_rows(&result);
+/*        if(strcmp(username, "Ramon-san") || strcmp(_password, "HelloWorld!")){
             system("clear");
             printf("\n\n\tNot a valid user or password, please try again.\n\n");
         }
@@ -37,9 +41,9 @@ void main_view_login(void){
             system("clear");
             printf("\n\n\tWelcome back %s!\n", username);
             verifier = 1;
-        }
+        }*/
     }
-    
+
     return;
 }
 
