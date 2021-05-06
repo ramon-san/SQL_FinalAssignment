@@ -11,6 +11,7 @@
 
 int main(int argc, char *argv[]){
     MYSQL mysql;
+    MYSQL_RES *result;
     char query[180];
 
     mysql_init(&mysql);
