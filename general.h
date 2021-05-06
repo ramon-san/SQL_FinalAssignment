@@ -15,9 +15,14 @@
 /* Structure definition */
 
 typedef struct user{
-    char name[25], father_surname[25], mother_surname[25], date_of_birth[11], email[40], username[25], _password[20];
+    char name[30], father_surname[30], mother_surname[30], date_of_birth[11], email[30], password[30];
     int position, employee_id;
 }USER;
+
+typedef struct user_info{
+    char name[30], email[30];
+    int position;
+}USER_INFO;
 
 /* Function prototypes */
 

@@ -20,7 +20,7 @@
 
 /* Function prototypes */
 
-void main_view_login(MYSQL *mysql);
+void main_view_login(MYSQL *mysql, USER_INFO *info);
 void main_view_menu(void);
 
 #endif /* main_view_h */
