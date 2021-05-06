@@ -47,3 +47,29 @@ void general_mysql_use_query(MYSQL *mysql, char *query){
     
     return;
 }
+
+void general_mysql_get_result(MYSQL *mysql, MYSQL_RES **result, char *query){
+
+    general_mysql_use_query(mysql, query);
+    if(!(*result = mysql_store_result(mysql))){
+        fprintf(stderr, "Error storing results: Error: %s", mysql_error(mysql));
+        exit(1);
+    }
+
+}
+
+void general_mysql_print_result_rows(MYSQL_RES **result){
+    MYSQL_ROW row;
+    int i;
+
+    while(row = mysql_fetch_row(*result)){
+        i = 0;
+
+        for(i=0; i<mysql_num_fields(*result); i++){
+            if(row[i] != NULL) printf("%s\n", row[i]);
+            else printf("\n");
+        }
+        fputc('\n', stdout);
+    }
+
+}
