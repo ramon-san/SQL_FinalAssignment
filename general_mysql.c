@@ -23,7 +23,7 @@ void general_mysql_connect_mysql_info(MYSQL *mysql){
     char *server = "localhost";
     char *user = "ic20rol";
     char *passwd = "216777";
-    char *db = "ejemplos";
+    char *db = "ic20rol";
 
     if(!mysql_real_connect(mysql, server, user, passwd, db, 0, NULL, 0)){
         fprintf(stderr, "Failed to connect to database: Error: %s\n", mysql_error(mysql));

@@ -13,7 +13,7 @@ int main(int argc, char *argv[]){
     MYSQL mysql;
     char query[180];
     
-    strcpy(query, "INSERT INTO Consultations VALUES(17,'cold','2021/07/28',119,97,'Vitamin C',600,6,5);");
+    strcpy(query, "SELECT * FROM pf_employees");
     mysql_init(&mysql);
     general_mysql_connect_mysql_info(&mysql);
     general_mysql_use_query(&mysql, query);
