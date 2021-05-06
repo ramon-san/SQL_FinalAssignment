@@ -9,5 +9,6 @@
 #define search_view_h
 
 #include <stdio.h>
+#include "general_mysql.h"
 
 #endif /* search_view_h */

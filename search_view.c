@@ -6,3 +6,9 @@
 //
 
 #include "search_view.h"
+
+void search_view_menu(BROWSER *browser){
+    
+
+    return;
+}

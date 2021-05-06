@@ -10,11 +10,12 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 
-#include "general.h"
+#include "general_mysql.h"
 
 /* Function prototypes */
 
-void register_view_menu(void);
+void register_view_menu(MYSQL *mysql);
 
 #endif /* register_view_h */

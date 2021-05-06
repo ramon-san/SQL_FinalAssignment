@@ -73,4 +73,35 @@ size_t verify_int_format(int to_verify, int min, int max){
     return(verifier);
 }
 
+/*
+ *
+ * The function verifies the int format.
+ *
+ * @params
+ *      phone (string):
+            This is the string that contains the phone number.
 
+ * @returns
+        verifier (size_t)
+            This is numeric variable verifies the function's output.
+*/
+size_t verify_phone_number(char phone[11]){
+    size_t i, verifier = 1;
+
+    if(phone[0] < 48 || phone[0] > 57) verifier = 0;
+    if(phone[1] < 48 || phone[1] > 57) verifier = 0;
+    if(phone[2] < 48 || phone[2] > 57) verifier = 0;
+    if(phone[3] < 48 || phone[3] > 57) verifier = 0;
+    if(phone[4] < 48 || phone[4] > 57) verifier = 0;
+    if(phone[5] < 48 || phone[5] > 57) verifier = 0;
+    if(phone[6] < 48 || phone[6] > 57) verifier = 0;
+    if(phone[7] < 48 || phone[7] > 57) verifier = 0;
+    if(phone[8] < 48 || phone[8] > 57) verifier = 0;
+    if(phone[9] < 48 || phone[9] > 57) verifier = 0;
+    if(phone[10] != '\0') verifier = 0;
+    if(verifier == 0){
+        printf("\n\tPlease use the correct format (10 numbers):\n");
+    }
+
+    return(verifier);
+}
