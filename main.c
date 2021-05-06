@@ -12,10 +12,27 @@
 int main(int argc, char *argv[]){
     MYSQL mysql;
     char query[180];
-    
-    strcpy(query, "INSERT INTO Consultations VALUES(17,'cold','2021/07/28',119,97,'Vitamin C',600,6,5);");
+    MYSQL_RES *result;
+    MYSQL_ROW row;
+    int i;
+
     mysql_init(&mysql);
     general_mysql_connect_mysql_info(&mysql);
+    printf("%p -> ", result);
+    strcpy(query,"SELECT email, password FROM pf_employees");
+    general_mysql_get_result(&mysql, result, query);
+    printf("%p", result);
+//    row = mysql_fetch_row(result);
+/*        i = 0;
+
+        for(i=0; i<mysql_num_fields(result); i++){
+            if(row[i] != NULL) printf("%s\n", row[i]);
+            else printf("\n");
+        }
+        fputc('\n', stdout);
+    }*/
+//    general_mysql_print_result_rows(&result);
+    strcpy(query, "SELECT * FROM pf_employees");
     general_mysql_use_query(&mysql, query);
     main_view_login();
     main_view_menu();
