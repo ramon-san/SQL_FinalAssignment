@@ -138,11 +138,13 @@ void general_mysql_print_search_result_rows(MYSQL_RES **result){
 }
 
 void general_mysql_add_search_history(MYSQL *mysql, int employee_id, char search[200]){
-    query[400] = "INSERT INTO pf_searches (search, date_of_search, employee_id) VALUES("
-    
-    sprintf(query, "'%s', CURDATE(), %i)", search, employee_id);
-//    general_mysql_use_query(*mysql, query);
-    printf("\n\n\t%s\n%i\n", search, employee_id);
-    printf("\n\n\t%s\n", query);
+    char query[400] = "INSERT INTO pf_searches (search, date_of_search, employee_id) VALUES(";
+    char concat[200];
+
+    sprintf(concat, "'%s', CURDATE(), %i)", search, employee_id);
+    strcat(query, concat);
+    general_mysql_use_query(mysql, query);
+//    printf("\n\n\t%s\n%i\n", search, employee_id);
+//    printf("\n\n\t%s\n", query);
     
 }
