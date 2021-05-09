@@ -12,7 +12,7 @@ void search_controller_search(MYSQL *mysql, SEARCH_INFO info, char email[30], ch
     char concat [100];
     MYSQL_RES *result;
 
-    if(option == 'P') strcpy(query, "SELECT name, father_surname, mother_surname, email FROM pf_patients LEFT JOIN pf_consultations WHERE ");
+    if(option == 'P') strcpy(query, "SELECT name, father_surname, mother_surname, email FROM pf_patients LEFT JOIN pf_consultations USING(patient_id)  WHERE ");
     if(option == 'E') strcpy(query, "SELECT name, father_surname, mother_surname, email FROM pf_employees WHERE ");
     
     if(info.name[0] == '\0');
@@ -69,7 +69,11 @@ void search_controller_search(MYSQL *mysql, SEARCH_INFO info, char email[30], ch
     else{
         sprintf(concat, "date_of_consultation = '%s'", info.date_of_consultation);
         strcat(query, concat);
-        }
+    }
+    if(option == 'P'){
+        strcpy(concat, " GROUP BY(patient_id)");
+        strcat(query, concat);
+
     }
 
     general_mysql_get_result(mysql, &result, query);
