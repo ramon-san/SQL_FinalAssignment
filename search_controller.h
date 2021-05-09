@@ -11,6 +11,6 @@
 #include <stdio.h>
 #include "general_mysql.h"
 
-void search_controller_search(MYSQL *mysql, SEARCH_INFO info, char email[30], char option);
+void search_controller_search(MYSQL *mysql, SEARCH_INFO info, int employee_id, char option);
 
 #endif /* search_controller_h */

@@ -104,6 +104,7 @@ void general_mysql_save_info(USER_INFO **info, MYSQL_RES **result){
         strcpy((*info)->name, row[0]);
         strcpy((*info)->email, row[1]);
         (*info)->position = atoi(row[2]);
+        (*info)->employee_id = atoi(row[3]);
         printf("\n");
 
         fputc('\n', stdout);
@@ -134,4 +135,14 @@ void general_mysql_print_search_result_rows(MYSQL_RES **result){
         fputc('\n', stdout);
     }
 
+}
+
+void general_mysql_add_search_history(MYSQL *mysql, int employee_id, char search[200]){
+    query[400] = "INSERT INTO pf_searches (search, date_of_search, employee_id) VALUES("
+    
+    sprintf(query, "'%s', CURDATE(), %i)", search, employee_id);
+//    general_mysql_use_query(*mysql, query);
+    printf("\n\n\t%s\n%i\n", search, employee_id);
+    printf("\n\n\t%s\n", query);
+    
 }

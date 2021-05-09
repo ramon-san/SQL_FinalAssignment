@@ -7,9 +7,9 @@
 
 #include "search_controller.h"
 
-void search_controller_search(MYSQL *mysql, SEARCH_INFO info, char email[30], char option){
+void search_controller_search(MYSQL *mysql, SEARCH_INFO info, int employee_id, char option){
     char query[400];
-    char concat [100];
+    char concat [100], search[200];
     MYSQL_RES *result;
 
     if(option == 'P') strcpy(query, "SELECT name, father_surname, mother_surname, email FROM pf_patients LEFT JOIN pf_consultations USING(patient_id)  WHERE ");
@@ -18,56 +18,68 @@ void search_controller_search(MYSQL *mysql, SEARCH_INFO info, char email[30], ch
     if(info.name[0] == '\0');
     else{
         sprintf(concat, "name = '%s'", info.name);
+        sprintf(search, "name: %s", info.name);
         strcat(query, concat);
         if(info.field_number > 1){
             strcat(query, " AND ");
+            strcat(search, ", ");
             info.field_number--;
         }
     }
     if(info.father_surname[0] == '\0');
     else{
         sprintf(concat, "father_surname = '%s'", info.father_surname);
+        sprintf(search, "father_surname: %s", info.father_surname);
         strcat(query, concat);
         if(info.field_number > 1){
             strcat(query, " AND ");
+            strcat(search, ", ");
             info.field_number--;
         }
     }
     if(info.mother_surname[0] == '\0');
     else{
         sprintf(concat, "mother_surname = '%s'", info.mother_surname);
+        sprintf(search, "mother_surname: %s", info.mother_surname);
         strcat(query, concat);
         if(info.field_number > 1){
             strcat(query, " AND ");
+            strcat(search, ", ");
             info.field_number--;
         }
     }
     if(info.email[0] == '\0');
     else{
         sprintf(concat, "email = '%s'", info.email);
+        sprintf(search, "email: %s", info.email);
         strcat(query, concat);
     }
     if(info.date_of_birth[0] == '\0');
     else{
         sprintf(concat, "date_of_birth = '%s'", info.date_of_birth);
+        sprintf(search, "date_of_birth: %s", info.date_of_birth);
         strcat(query, concat);
         if(info.field_number > 1){
             strcat(query, " AND ");
+            strcat(search, ", ");
             info.field_number--;
         }
     }
     if(info.diagnosis[0] == '\0');
     else{
         sprintf(concat, "diagnosis = '%s'", info.diagnosis);
+        sprintf(search, "diagnosis: %s", info.diagnosis);
         strcat(query, concat);
         if(info.field_number > 1){
             strcat(query, " AND ");
+            strcat(search, ", ");
             info.field_number--;
         }
     }
     if(info.date_of_consultation[0] == '\0');
     else{
         sprintf(concat, "date_of_consultation = '%s'", info.date_of_consultation);
+        sprintf(search, "date_of_consultation: %s", info.date_of_consultation);
         strcat(query, concat);
     }
     if(option == 'P'){
@@ -81,5 +93,7 @@ void search_controller_search(MYSQL *mysql, SEARCH_INFO info, char email[30], ch
     printf("\n\n\tPress [ENTER] to continue.\n");
     getchar();
     system("clear");
+    general_mysql_add_search_history(mysql, employee_id, search)
 
+    return(info);
 }

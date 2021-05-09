@@ -29,5 +29,6 @@ int general_mysql_verify_user(MYSQL *mysql, MYSQL_RES **result, char *query);
 void general_mysql_save_info(USER_INFO **info, MYSQL_RES **result);
 void general_mysql_patient_search(MYSQL *mysql, SEARCH_INFO info, char email[30]);
 void general_mysql_print_search_result_rows(MYSQL_RES **result);
+void general_mysql_add_search_history(MYSQL *mysql, int employee_id, char search[200]);
 
 #endif /* general_mysql_h */

@@ -21,7 +21,7 @@ typedef struct user{
 
 typedef struct user_info{
     char name[30], email[30];
-    int position;
+    int position, employee_id;
 }USER_INFO;
 
 typedef struct search_info{

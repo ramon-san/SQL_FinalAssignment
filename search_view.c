@@ -102,7 +102,7 @@ void search_view_menu(BROWSER **browser){
         }
 
 	system("clear");
-        if(info.field_number > 0) search_controller_search(&(*browser)->mysql, info, (*browser)->info.email, option);
+        if(info.field_number > 0) search_controller_search(&(*browser)->mysql, info, (*browser)->info.employee_id, option);
     	else printf("\n\tNothing was searched for.\n");
     }
     else{
