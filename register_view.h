@@ -16,6 +16,6 @@
 
 /* Function prototypes */
 
-void register_view_menu(MYSQL *mysql);
+void register_view_menu(MYSQL *mysql, char option);
 
 #endif /* register_view_h */

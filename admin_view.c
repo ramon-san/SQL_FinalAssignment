@@ -20,7 +20,7 @@ void admin_view_menu(void){
     
     while(option != 'B'){
         printf("\n\tPlease select one of the following options and click [Enter]: \n");
-        printf("\n\t  [S]how user info\n\t  [F]ind user\n\t  [M]odify user info\n\t  [B]ack to main\n\n   -> ");
+        printf("\n\t  [S]how user info\n\t  [R]egister user\n\t  [M]odify user info\n\t  [B]ack to main\n\n   -> ");
         scanf(" %c", &option);
         option = toupper(option);
 
@@ -33,9 +33,9 @@ void admin_view_menu(void){
             system("clear");
             printf("\n\tComing soon...\n");
          }
-        else if(option == 'F'){
+        else if(option == 'R'){
             system("clear");
-            printf("\n\tComing soon...\n");
+            register_view_menu(&browser->mysql, 'U');
          }
         else if(option == 'M'){
             system("clear");

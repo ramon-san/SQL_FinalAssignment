@@ -68,7 +68,7 @@ void main_view_menu(BROWSER *browser){
          }
         else if(option == 'R'){
             system("clear");
-            register_view_menu(&browser->mysql);
+            register_view_menu(&browser->mysql, 'P');
          }
         else if(option == 'S'){
             system("clear");
