@@ -111,4 +111,27 @@ void general_mysql_save_info(USER_INFO **info, MYSQL_RES **result){
 
 }
 
+void general_mysql_print_search_result_rows(MYSQL_RES **result){
+    MYSQL_ROW row;
+    int i = 0, looper = 0, result_number = 1;
 
+    while(row = mysql_fetch_row(*result)){
+
+        for(i=0; i<mysql_num_fields(*result); i++){
+            if(row[i] != NULL){
+		if(looper == 0) printf("\n\tResult %i:\n\t   Name: %s", result_number, row[i]);
+		if(looper == 1) printf("\n\t   Father surname: %s", row[i]);
+		if(looper == 2) printf("\n\t   Mother surname: %s", row[i]);
+                if(looper == 3) printf("\n\t   Email: %s", row[i]);
+		looper++;
+		if(looper == 4){
+		    looper = 0;
+		    result_number++;
+		}
+	    }
+            else printf("\n");
+        }
+        fputc('\n', stdout);
+    }
+
+}

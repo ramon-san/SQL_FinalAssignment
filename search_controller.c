@@ -77,6 +77,9 @@ void search_controller_search(MYSQL *mysql, SEARCH_INFO info, char email[30], ch
     }
 
     general_mysql_get_result(mysql, &result, query);
-    general_mysql_print_result_rows(&result);
+    general_mysql_print_search_result_rows(&result);
+    printf("\n\n\tPress [ENTER] to continue.\n");
+    getchar();
+    system("clear");
 
 }

@@ -28,5 +28,6 @@ void general_mysql_print_result_rows(MYSQL_RES **result);
 int general_mysql_verify_user(MYSQL *mysql, MYSQL_RES **result, char *query);
 void general_mysql_save_info(USER_INFO **info, MYSQL_RES **result);
 void general_mysql_patient_search(MYSQL *mysql, SEARCH_INFO info, char email[30]);
+void general_mysql_print_search_result_rows(MYSQL_RES **result);
 
 #endif /* general_mysql_h */
