@@ -33,6 +33,8 @@ void main_view_login(BROWSER *browser){
         general_mysql_print_result_rows(&result);
         main_controller_save_info(&browser->mysql, &browser->info);
     }
+    system("clear");
+    printf("\n\t   Welcome back %s!\n", browser->info.name);
 
     return;
 }
@@ -70,7 +72,7 @@ void main_view_menu(BROWSER *browser){
          }
         else if(option == 'S'){
             system("clear");
-            printf("\n\tComing soon...\n");
+            search_view_menu(&browser);
          }
         else if(option == 'V'){
             system("clear");

@@ -59,10 +59,13 @@ void register_view_menu(MYSQL *mysql){
                 verifier = verify_int_format(user.position, 1, 2);
             }
 	}
+        system("clear");
     }
-    else;
-    system("clear");
-    
+    else{
+        system("clear");
+        printf("\n\t '%c' is not a valid input\n", option);
+    }
+
     return;
 }
 

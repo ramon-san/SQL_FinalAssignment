@@ -24,6 +24,11 @@ typedef struct user_info{
     int position;
 }USER_INFO;
 
+typedef struct search_info{
+    char name[30], email[30], date_of_birth[11];
+    size_t field_number;
+}SEARCH_INFO;
+
 /* Function prototypes */
 
 size_t verify_date_format(char date[11]);

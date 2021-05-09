@@ -9,6 +9,9 @@
 #define search_view_h
 
 #include <stdio.h>
+#include <ctype.h>
 #include "general_mysql.h"
+
+void search_view_menu(BROWSER **browser);
 
 #endif /* search_view_h */
