@@ -15,7 +15,7 @@
  * @returns
         void
 */
-void admin_view_menu(void){
+void admin_view_menu(BROWSER **browser){
     char option = '0';
     
     while(option != 'B'){
@@ -35,7 +35,7 @@ void admin_view_menu(void){
          }
         else if(option == 'R'){
             system("clear");
-            register_view_menu(&browser->mysql, 'U');
+            register_view_menu(&(*browser)->mysql, 'U');
          }
         else if(option == 'M'){
             system("clear");

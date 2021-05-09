@@ -64,7 +64,7 @@ void main_view_menu(BROWSER *browser){
         else if(option == 'A'){
             system("clear");
 	    if(browser->info.position == 1) printf("\n\tYou don't have an admin account.\n");
-            else admin_view_menu();
+            else admin_view_menu(&browser);
          }
         else if(option == 'R'){
             system("clear");

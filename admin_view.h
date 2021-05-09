@@ -11,9 +11,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include "general_mysql.h"
+#include "register_view.h"
 
 /* Function prototypes */
 
-void admin_view_menu(void);
+void admin_view_menu(BROWSER **browser);
 
 #endif /* admin_view_h */
