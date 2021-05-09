@@ -39,7 +39,7 @@ void search_controller_patient_search(MYSQL *mysql, SEARCH_INFO info, char email
 }
 
 void search_controller_employee_search(MYSQL *mysql, SEARCH_INFO info, char email[30]){
-    char query[400] = "SELECT name, father_surname, mother_surname, email FROM pf_employee WHERE ";
+    char query[400] = "SELECT name, father_surname, mother_surname, email FROM pf_employees WHERE ";
     char concat [100];
     MYSQL_RES *result;
 

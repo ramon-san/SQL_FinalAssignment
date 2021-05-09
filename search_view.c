@@ -45,13 +45,14 @@ void search_view_menu(BROWSER **browser){
             }
         }
 	system("clear");
-	if(option == 'P' && info.field_number > 0){
+        if(option == 'P' && info.field_number > 0){
 	    search_controller_patient_search(&(*browser)->mysql, info, (*browser)->info.email);
+        }
+    	if(option == 'E' && info.field_number > 0){
+            search_controller_employee_search(&(*browser)->mysql, info, (*browser)->info.email);
+    	}
+    	if(info.field_number == 0) printf("\n\tNothing was searched for.\n");
     }
-	if(option == 'E' && info.field_number > 0){
-        search_controller_employee_search(&(*browser)->mysql, info, (*browser)->info.email);
-    }
-	if(info.field_number == 0) printf("\n\tNothing was searched for.\n");
     else{
 	system("clear");
 	printf("\n\t'%c' not a valid option.\n", option);
