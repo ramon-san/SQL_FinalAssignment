@@ -25,7 +25,7 @@ typedef struct user_info{
 }USER_INFO;
 
 typedef struct search_info{
-    char name[30], email[30], date_of_birth[11];
+    char name[30], father_surname[30], mother_surname[30], email[30], diagnosis[70], date_of_birth[11], date_of_consultation[11];
     size_t field_number;
 }SEARCH_INFO;
 
