@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include "general_mysql.h"
+#include "search_controller.h"
 
 void search_view_menu(BROWSER **browser);
 
