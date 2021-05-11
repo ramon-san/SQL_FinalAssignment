@@ -144,8 +144,6 @@ void general_mysql_add_search_history(MYSQL *mysql, int employee_id, char search
     sprintf(concat, "'%s', CURDATE(), %i)", search, employee_id);
     strcat(query, concat);
     general_mysql_use_query(mysql, query);
-//    printf("\n\n\t%s\n%i\n", search, employee_id);
-//    printf("\n\n\t%s\n", query);
     
 }
 
@@ -157,13 +155,13 @@ void general_mysql_print_patient_result_rows(MYSQL_RES **result){
 
         for(i=0; i<mysql_num_fields(*result); i++){
             if(row[i] != NULL){
-                if(looper == 1) printf("\n\t(%i) Paciente %s:\n\t   Nombre: %s", result_number, row[i-1], row[i]);
+                if(looper == 1) printf("\n\t(%i) Paciente %s:\n\t   Nombre: %s", patient_number, row[i-1], row[i]);
                 if(looper == 2) printf("\n\t   Apellido paterno: %s", row[i]);
                 if(looper == 3) printf("\n\t   Apellido materno: %s", row[i]);
                 looper++;
                 if(looper == 4){
                     looper = 0;
-                    result_number++;
+                    patient_number++;
                 }
             }
             else printf("\n");
@@ -186,7 +184,7 @@ void general_mysql_print_consult_result_rows(MYSQL_RES **result){
                 looper++;
                 if(looper == 3){
                     looper = 0;
-                    result_number++;
+                    consult_number++;
                 }
             }
             else printf("\n");
@@ -204,11 +202,11 @@ void general_mysql_print_vaccine_result_rows(MYSQL_RES **result){
 
         for(i=0; i<mysql_num_fields(*result); i++){
             if(row[i] != NULL){
-                if(looper == 1) printf("\n\t(%i) Vacuna: \n\t   Fecha de vacunación: %s", vaccine_number, row[i-1], row[i]);
+                if(looper == 1) printf("\n\t(%i) Vacuna: %s\n\t   Fecha de vacunación: %s", vaccine_number, row[i-1], row[i]);
                 looper++;
                 if(looper == 2){
                     looper = 0;
-                    result_number++;
+                    vaccine_number++;
                 }
             }
             else printf("\n");

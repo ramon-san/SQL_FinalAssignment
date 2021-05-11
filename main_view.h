@@ -17,6 +17,7 @@
 #include "admin_view.h"
 #include "register_view.h"
 #include "search_view.h"
+#include "patient_view.h"
 #include "main_controller.h"
 #include "general_mysql.h"
 

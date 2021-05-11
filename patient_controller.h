@@ -9,6 +9,8 @@
 #define patient_controller_h
 
 #include <stdio.h>
+#include <stdlib.h>
+#include "general_mysql.h"
 
 /* Function prototypes */
 

@@ -31,7 +31,7 @@ void patient_view_menu(BROWSER **browser){
         }
         else if(option == 'V'){
             system("clear");
-            patient_controller_view_patients(&(*browser)->mysql, (*browser)->employee_id);
+            patient_controller_view_patients(&(*browser)->mysql, (*browser)->info.employee_id);
         }
         else if(option == 'H'){
             system("clear");

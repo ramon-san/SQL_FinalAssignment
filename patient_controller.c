@@ -16,7 +16,9 @@ void patient_controller_view_patients(MYSQL *mysql, int employee_id){
     general_mysql_print_patient_result_rows(&result);
     printf("\n\n\tPresiona [Enter] para continuar.\n");
     getchar();
-    
+    getchar();
+    system("clear");
+
 }
 
 void patient_controller_patient_history(MYSQL *mysql){
@@ -37,7 +39,9 @@ void patient_controller_patient_history(MYSQL *mysql){
     general_mysql_print_vaccine_result_rows(&result);
     printf("\n\n\tPresiona [Enter] para continuar.\n");
     getchar();
-    
+    getchar();
+    system("clear");
+
 }
 
 void patient_controller_add_consultation(MYSQL *mysql){

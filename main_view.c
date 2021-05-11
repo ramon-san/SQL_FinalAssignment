@@ -76,7 +76,7 @@ void main_view_menu(BROWSER *browser){
          }
         else if(option == 'M'){
             system("clear");
-            printf("\n\tComing soon...\n");
+            patient_view_menu(&browser);
          }
         else if(option == 'I'){
             system("clear");
