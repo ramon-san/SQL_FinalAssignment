@@ -9,8 +9,11 @@
 
 /*
  *
- * The function verifies the user's identity.
+ * The function allows the user to log in.
  *
+ * @params
+ *      browser (BROWSER *):
+            This variable contains the browser info.
 
  * @returns
         void
@@ -43,6 +46,9 @@ void main_view_login(BROWSER *browser){
  *
  * The function menu gives the user action posibilities.
  *
+ * @params
+ *      browser (BROWSER *):
+            This variable contains the browser info.
 
  * @returns
         void
