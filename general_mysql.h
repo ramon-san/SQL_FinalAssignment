@@ -33,5 +33,5 @@ void general_mysql_add_search_history(MYSQL *mysql, int employee_id, char search
 void general_mysql_print_patient_result_rows(MYSQL_RES **result);
 void general_mysql_print_consult_result_rows(MYSQL_RES **result);
 void general_mysql_print_vaccine_result_rows(MYSQL_RES **result);
-
+void general_mysql_print_count_result_rows(MYSQL_RES **result);
 #endif /* general_mysql_h */

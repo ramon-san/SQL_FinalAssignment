@@ -86,7 +86,7 @@ void main_view_menu(BROWSER *browser){
          }
         else if(option == 'I'){
             system("clear");
-            printf("\n\tComing soon...\n");
+            analytics_view_menu(&browser);
          }
         else{
             system("clear");

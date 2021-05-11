@@ -215,3 +215,25 @@ void general_mysql_print_vaccine_result_rows(MYSQL_RES **result){
     }
 
 }
+
+void general_mysql_print_count_result_rows(MYSQL_RES **result){
+    MYSQL_ROW row;
+    int i = 0, looper = 0, count_number = 1;
+
+    while(row = mysql_fetch_row(*result)){
+
+        for(i=0; i<mysql_num_fields(*result); i++){
+            if(row[i] != NULL){
+                if(looper == 1) printf("\n\tResultado %i: %s\n\t   Total: %s", count_number, row[i-1], row[i]);
+                looper++;
+                if(looper == 2){
+                    looper = 0;
+                    count_number++;
+                }
+            }
+            else printf("\n");
+        }
+        fputc('\n', stdout);
+    }
+
+}
