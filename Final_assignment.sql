@@ -47,7 +47,7 @@ CREATE TABLE pf_consultations(
 
 CREATE TABLE pf_vaccines(
     vaccine_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    vaccines VARCHAR(30) NOT NULL,
+    vaccine VARCHAR(30) NOT NULL,
     cost INT NOT NULL
 );
 

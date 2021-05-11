@@ -10,12 +10,13 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 #include "general_mysql.h"
 
 /* Function prototypes */
 
 void patient_controller_view_patients(MYSQL *mysql, int employee_id);
 void patient_controller_patient_history(MYSQL *mysql);
-void patient_controller_add_consultation(MYSQL *mysql);
+void patient_controller_add_consultation(MYSQL *mysql, int employee_id);
 
 #endif /* patient_controller_h */

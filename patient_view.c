@@ -39,7 +39,7 @@ void patient_view_menu(BROWSER **browser){
         }
         else if(option == 'A'){
             system("clear");
-            patient_controller_add_consultation(&(*browser)->mysql);
+            patient_controller_add_consultation(&(*browser)->mysql, (*browser)->info.employee_id);
         }
         else{
             system("clear");
