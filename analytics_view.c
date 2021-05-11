@@ -14,7 +14,7 @@ void analytics_view_menu(BROWSER **browser){
     
     while(option != 'R'){
         printf("\n\tPorfavor selecciona una de las siguientes opciones y da click en [Enter]: \n");
-        printf("\n\t  [E]nfermedades\n\t  [C]onsultas por paciente\n\t  [V]acunación\n\t  [R]egresar al menú principal\n\n   -> ");
+        printf("\n\t  [E]nfermedades general\n\t  [P]aciente con más consultas\n\t  [V]acuna más usada\n\t  [R]egresar al menú principal\n\n   -> ");
         scanf(" %c", &option);
         option = toupper(option);
 
@@ -29,16 +29,29 @@ void analytics_view_menu(BROWSER **browser){
             general_mysql_get_result(&(*browser)->mysql, &result, query);
             general_mysql_print_count_result_rows(&result);
             printf("\n\n\tPresiona [Enter] para continuar.\n");
-            if(option == 'E') getchar();
             getchar();
+            getchar();
+            system("clear");
          }
-        else if(option == 'C'){
+        else if(option == 'P'){
             system("clear");
             strcpy(query, "SELECT CONCAT(name, \" \", father_surname, \" (\", patient_id, \")\"), COUNT(patient_id) FROM pf_consultations LEFT JOIN pf_patients USING(patient_id) GROUP BY(patient_id) ORDER BY(COUNT(patient_id)) DESC LIMIT 1");
+            general_mysql_get_result(&(*browser)->mysql, &result, query);
+            general_mysql_print_count_result_rows(&result);
+            printf("\n\n\tPresiona [Enter] para continuar.\n");
+            getchar();
+            getchar();
+	    system("clear");
          }
         else if(option == 'V'){
             system("clear");
             strcpy(query, "SELECT vaccine, COUNT(vaccine_id) FROM pf_patientsVaccines LEFT JOIN pf_vaccines USING(vaccine_id) GROUP BY(vaccine_id) ORDER BY(COUNT(vaccine_id)) DESC LIMIT 1");
+            general_mysql_get_result(&(*browser)->mysql, &result, query);
+            general_mysql_print_count_result_rows(&result);
+            printf("\n\n\tPresiona [Enter] para continuar.\n");
+            getchar();
+            getchar();
+            system("clear");
          }
         else{
             system("clear");

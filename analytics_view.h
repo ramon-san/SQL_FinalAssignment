@@ -9,6 +9,11 @@
 #define analytics_view_h
 
 #include <stdio.h>
+#include <ctype.h>
 #include "general_mysql.h"
+
+/* Function prototypes */
+
+void analytics_view_menu(BROWSER **browser);
 
 #endif /* analytics_view_h */
