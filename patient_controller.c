@@ -93,45 +93,42 @@ void patient_controller_add_consultation(MYSQL *mysql, int employee_id){
     scanf(" %li", &cost);
     
     sprintf(query, "INSERT INTO pf_consultations (diagnosis, date_of_consultation, blood_pressure, oxygen_level, treatment, cost, employee_id, patient_id) VALUES('%s', '%s', %i, %i, '%s', %li, %i, %i)", diagnosis, date_of_consultation, blood_pressure, oxygen_level, treatment, cost, employee_id, patient_id);
-
-    printf("\n\n\t%s\n", query);
-//    general_mysql_use_query(mysql, query);
+    general_mysql_use_query(mysql, query);
     
     printf("\n\n\t¿Quiere agregar una vacuna? [S]i, [N]o: ");
-    scanf(" %c", option);
+    scanf(" %c", &option);
     option = toupper(option);
     if(option == 'S'){
-        while(option != 'E' || option != 'N'){
-            printf("\n\tVacuna [E]xistente o [N]ueva: ")
-            scanf(" %c", option);
-            option = toupper(option);
-        }
+        printf("\n\tVacuna [E]xistente o [N]ueva: ");
+        scanf(" %c", &option);
+        option = toupper(option);
         if(option == 'E'){
             printf("\n\t  Número de vacuna: ");
             scanf(" %i", &vaccine_id);
             
             sprintf(query, "INSERT INTO pf_patientsVaccines (vaccine_id, patient_id, date_of_vaccine) VALUES(%i, %i, '%s')", vaccine_id, patient_id, date_of_consultation);
-            printf("\n\n\t%s\n", query);
-        //    general_mysql_use_query(mysql, query);
-            
+            general_mysql_use_query(mysql, query);
+            system("clear");
+            printf("\n\n\tLa consulta se registró correctamente.\n");
         }
-        else{
+        else if(option == 'N'){
             printf("\n\t  Nombre de vacuna: ");
             scanf(" %s", vaccine);
             printf("\n\t  Costo de vacuna: ");
-            scanf(" %li", vaccine_cost);
+            scanf(" %li", &vaccine_cost);
             sprintf(query, "INSERT INTO pf_vaccines (vaccine, cost) VALUES('%s', %li)", vaccine, vaccine_cost);
-            printf("\n\n\t%s\n", query);
-        //    general_mysql_use_query(mysql, query);
+            general_mysql_use_query(mysql, query);
             sprintf(query, "INSERT INTO pf_patientsVaccines (vaccine_id, patient_id, date_of_vaccine) VALUES((SELECT vaccine_id FROM pf_vaccines ORDER BY(vaccine_id) DESC LIMIT 1), %i, '%s')", patient_id, date_of_consultation);
-            printf("\n\n\t%s\n", query);
-        //    general_mysql_use_query(mysql, query);
-            
+            general_mysql_use_query(mysql, query);
+            system("clear");
+            printf("\n\n\tLa consulta se registró correctamente.\n");
         }
+	else{
+	    system("clear");
+	    printf("\n\n\tOpción de vacunación no válida. La consulta se registró correctamente.\n");
+	}
         
     }
-    
-    system("clear");
     
     return;
     
