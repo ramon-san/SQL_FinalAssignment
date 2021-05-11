@@ -97,7 +97,7 @@ void search_controller_search(MYSQL *mysql, SEARCH_INFO info, int employee_id, c
 
     general_mysql_get_result(mysql, &result, query);
     general_mysql_print_search_result_rows(&result);
-    printf("\n\n\tPress [ENTER] to continue.\n");
+    printf("\n\n\tPresiona [Enter] para continuar.\n");
     if(option == 'E') getchar();
     getchar();
     system("clear");

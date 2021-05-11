@@ -13,6 +13,8 @@
 #include "general_mysql.h"
 #include "search_controller.h"
 
+/* Function prototypes */
+
 void search_view_menu(BROWSER **browser);
 
 #endif /* search_view_h */

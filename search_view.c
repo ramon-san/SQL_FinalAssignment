@@ -20,54 +20,54 @@ void search_view_menu(BROWSER **browser){
     info.diagnosis[0] = '\0';
     info.date_of_consultation[0] = '\0';
     info.field_number = 0;
-    printf("\n\tLook for [P]atient or [E]mployee: ");
+    printf("\n\tBuscar [P]aciente o [E]mpleado: ");
     scanf(" %c", &option);
     option = toupper(option);
     if(option == 'P' || option == 'E'){
         if(option == 'P'){
-            printf("\n\n\tDo you want to add father surname to the search? [Y]es, [N]o: ");
+            printf("\n\n\t¿Quiere agregar apellido paterno a la búsqueda? [S]i, [N]o: ");
             scanf(" %c", &validator);
             validator = toupper(validator);
-            if(validator == 'Y'){
+            if(validator == 'S'){
                 info.field_number++;
-                printf("\n\tEnter father surname: ");
+                printf("\n\tIngrese apellido paterno: ");
                 scanf("%s", info.father_surname);
             }
-            printf("\n\tDo you want to add mother surname to the search? [Y]es, [N]o: ");
+            printf("\n\t¿Quiere agregar apellido materno a la búsqueda? [S]i, [N]o: ");
             scanf(" %c", &validator);
             validator = toupper(validator);
-            if(validator == 'Y'){
+            if(validator == 'S'){
                 info.field_number++;
-                printf("\n\tEnter mother surname: ");
+                printf("\n\tIngrese apellido materno: ");
                 scanf("%s", info.mother_surname);
             }
-            printf("\n\tDo you want to add diagnosis to the search? [Y]es, [N]o: ");
+            printf("\n\t¿Quiere agregar fecha de nacimiento a la búsqueda? [S]i, [N]o: ");
             scanf(" %c", &validator);
             validator = toupper(validator);
-            if(validator == 'Y'){
-                info.field_number++;
-                printf("\n\tEnter diagnosis: ");
-                scanf("%s", info.diagnosis);
-            }
-            printf("\n\tDo you want to add date of birth to the search? [Y]es, [N]o: ");
-            scanf(" %c", &validator);
-            validator = toupper(validator);
-            if(validator == 'Y'){
+            if(validator == 'S'){
                 info.field_number++;
                 while(verifier == 0){
-                    printf("\n\tEnter date of birth (YYYY/MM/DD): ");
+                    printf("\n\tIngrese fecha de nacimiento (YYYY/MM/DD): ");
                     scanf("%s", info.date_of_birth);
                     verifier = verify_date_format(info.date_of_birth);
                 }
             }
-            printf("\n\tDo you want to add date of consultation to the search? [Y]es, [N]o: ");
+            printf("\n\t¿Quiere agregar diagnóstico a la búsqueda? [S]i, [N]o: ");
             scanf(" %c", &validator);
             validator = toupper(validator);
-            if(validator == 'Y'){
+            if(validator == 'S'){
+                info.field_number++;
+                printf("\n\tIngrese diagnóstico: ");
+                scanf("%s", info.diagnosis);
+            }
+            printf("\n\t¿Quiere agregar fecha de consulta a la búsqueda? [S]i, [N]o: ");
+            scanf(" %c", &validator);
+            validator = toupper(validator);
+            if(validator == 'S'){
 		verifier = 0;
                 info.field_number++;
                 while(verifier == 0){
-                    printf("\n\tEnter date of consultation (YYYY/MM/DD): ");
+                    printf("\n\tIngrese fecha de consulta (YYYY/MM/DD): ");
                     scanf("%s", info.date_of_consultation);
                     verifier = verify_date_format(info.date_of_consultation);
                 }
@@ -75,39 +75,39 @@ void search_view_menu(BROWSER **browser){
 	    getchar();
         }
         if(option == 'E'){
-            printf("\n\n\tDo you want to add name to the search? [Y]es, [N]o: ");
+            printf("\n\n\t¿Quiere agregar nombre a la búsqueda? [S]i, [N]o: ");
             scanf(" %c", &validator);
             validator = toupper(validator);
-            if(validator == 'Y'){
+            if(validator == 'S'){
                 info.field_number++;
-                printf("\n\tEnter name: ");
+                printf("\n\tIngrese nombre: ");
                 scanf("%s", info.name);
             }
-            printf("\n\tDo you want to add father surname to the search? [Y]es, [N]o: ");
+            printf("\n\t¿Quiere agregar apellido paterno a la búsqueda? [S]i, [N]o: ");
             scanf(" %c", &validator);
             validator = toupper(validator);
-            if(validator == 'Y'){
+            if(validator == 'S'){
                 info.field_number++;
-                printf("\n\tEnter father surname: ");
+                printf("\n\tIngrese apellido paterno: ");
                 scanf("%s", info.father_surname);
             }
-            printf("\n\tDo you want to add email to the search? [Y]es, [N]o: ");
+            printf("\n\t¿Quiere agregar email a la búsqueda? [S]i, [N]o: ");
             scanf(" %c", &validator);
             validator = toupper(validator);
-            if(validator == 'Y'){
+            if(validator == 'S'){
                 info.field_number++;
-                printf("\n\tEnter email: ");
+                printf("\n\tIngrese email: ");
                 scanf("%s", info.email);
             }
         }
 
 	system("clear");
         if(info.field_number > 0) search_controller_search(&(*browser)->mysql, info, (*browser)->info.employee_id, option);
-    	else printf("\n\tNothing was searched for.\n");
+    	else printf("\n\tNo se buscó nada.\n");
     }
     else{
 	system("clear");
-	printf("\n\t'%c' not a valid option.\n", option);
+	printf("\n\t'%c' no es una opción válida.\n", option);
     }
 
     return;

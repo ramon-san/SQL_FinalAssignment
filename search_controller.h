@@ -11,6 +11,8 @@
 #include <stdio.h>
 #include "general_mysql.h"
 
+/* Function prototypes */
+
 void search_controller_search(MYSQL *mysql, SEARCH_INFO info, int employee_id, char option);
 
 #endif /* search_controller_h */

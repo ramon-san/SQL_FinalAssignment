@@ -10,4 +10,6 @@
 
 #include <stdio.h>
 
+/* Function prototypes */
+
 #endif /* admin_controller_h */

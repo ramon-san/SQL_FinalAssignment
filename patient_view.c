@@ -1,26 +1,26 @@
 //
-//  admin_view.c
+//  patient_view.c
 //  
 //
-//  Created by Ramon Orraca on 29/04/21.
+//  Created by Ramon Orraca on 11/05/21.
 //
 
-#include "admin_view.h"
+#include "patient_view.h"
 
 /*
  *
- * The function menu gives the user admin action posibilities.
+ * The function menu gives the user action posibilities for patient instructions.
  *
 
  * @returns
         void
 */
-void admin_view_menu(BROWSER **browser){
+void patient_view_menu(BROWSER **browser){
     char option = '0';
     
     while(option != 'R'){
         printf("\n\tPorfavor selecciona una de las siguientes opciones y da click en [Enter]: \n");
-        printf("\n\t  [I]nformación general\n\t  [H]istorial de busqueda\n\t  [A]gregar usuario\n\t  [M]odificar información\n\t  [R]egresar al menú principal\n\n   -> ");
+        printf("\n\t  [V]er pacientes\n\t  [H]istorial de paciente\n\t  [A]gregar consulta\n\t  [R]egresar al menú principal\n\n   -> ");
         scanf(" %c", &option);
         option = toupper(option);
 
@@ -29,22 +29,18 @@ void admin_view_menu(BROWSER **browser){
             system("clear");
             printf("\n\tDe vuelta en el menú principal...\n");
         }
-        else if(option == 'I'){
+        else if(option == 'V'){
             system("clear");
-            printf("\n\tComing soon...\n");
-         }
+            patient_controller_view_patients(&(*browser)->mysql, (*browser)->employee_id);
+        }
         else if(option == 'H'){
             system("clear");
-            printf("\n\tComing soon...\n");
-         }
+            patient_controller_patient_history(&(*browser)->mysql);
+        }
         else if(option == 'A'){
             system("clear");
-            register_view_menu(&(*browser)->mysql, 'U');
-         }
-        else if(option == 'M'){
-            system("clear");
-            printf("\n\tComing soon...\n");
-         }
+            patient_controller_add_consultation(&(*browser)->mysql);
+        }
         else{
             system("clear");
             printf("\n\t'%c' no es una opción válida.\n", option);

@@ -41,7 +41,7 @@ size_t verify_date_format(char date[11]){
 
     if(date[10] != '\0') verifier = 0;
 
-    if(verifier == 0) printf("\n\tPlease use the correct format:\n");
+    if(verifier == 0) printf("\n\tPorfavor usa el formato adecuado:\n");
 
     return(verifier);
 }
@@ -67,7 +67,7 @@ size_t verify_int_format(int to_verify, int min, int max){
     
     if(to_verify < min || to_verify > max){
         verifier = 0;
-        printf("\n\tPlease use the correct format:\n");
+        printf("\n\tPor favor usa el formato adecuado:\n");
     }
     
     return(verifier);
@@ -100,7 +100,7 @@ size_t verify_phone_number(char phone[11]){
     if(phone[9] < 48 || phone[9] > 57) verifier = 0;
     if(phone[10] != '\0') verifier = 0;
     if(verifier == 0){
-        printf("\n\tPlease use the correct format (10 numbers):\n");
+        printf("\n\tPorfavor usa el formato adecuado (10 números):\n");
     }
 
     return(verifier);

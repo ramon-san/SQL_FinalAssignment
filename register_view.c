@@ -28,15 +28,15 @@ void register_view_menu(MYSQL *mysql, char option){
     if(option == 'U') strcat(query, ", password, user_type_id) ");
     if(option == 'P') strcat(query, ") ");
     
-    printf("\n\n\tPlease fill in the following information and click [Enter]: \n");
-    printf("\n\t  Name: ");
+    printf("\n\n\tPorfavor llena la siguiente información y presiona [Enter]: \n");
+    printf("\n\t  Nombre: ");
     scanf("%s", user.name);
-    printf("\n\t  Father surname: ");
+    printf("\n\t  Apellido paterno: ");
     scanf("%s", user.father_surname);
-    printf("\n\t  Mother surname: ");
+    printf("\n\t  Apellido materno: ");
     scanf("%s", user.mother_surname);
     while(verifier == 0){
-        printf("\n\t  Date of birth (YYYY/MM/DD): ");
+        printf("\n\t  Fecha de nacimiento (YYYY/MM/DD): ");
         scanf("%s", user.date_of_birth);
         verifier = verify_date_format(user.date_of_birth);
     }
@@ -44,17 +44,17 @@ void register_view_menu(MYSQL *mysql, char option){
     scanf("%s", user.email);
     verifier = 0;
     while(verifier == 0){
-        printf("\n\t  Phone: ");
+        printf("\n\t  Teléfono: ");
         scanf("%s", user.phone);
         verifier = verify_phone_number(user.phone);
     }
     sprintf(concat, "VALUES('%s', '%s', '%s', '%s', '%s', '%s'", user.name, user.father_surname, user.mother_surname, user.date_of_birth, user.email, user.phone);
     if(option == 'U'){
-        printf("\n\t  Password: ");
+        printf("\n\t  Contraseña: ");
         scanf("%s", user.password);
         verifier = 0;
         while(verifier == 0){
-            printf("\n\t  Position (doctor = 1, admin = 2): ");
+            printf("\n\t  Posición (doctor = 1, admin = 2): ");
             scanf("%i", &user.position);
             verifier = verify_int_format(user.position, 1, 2);
         }

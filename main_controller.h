@@ -11,6 +11,8 @@
 #include "general_mysql.h"
 #include <stdio.h>
 
+/* Function prototypes */
+
 void main_controller_save_info(MYSQL *mysql, USER_INFO *info);
 
 #endif /* main_controller_h */

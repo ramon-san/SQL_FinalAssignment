@@ -89,7 +89,7 @@ int general_mysql_verify_user(MYSQL *mysql, MYSQL_RES **result, char *query){
     }
     if(verifier == 0){
 	system("clear");
-	printf("\n\n\tPlease verify your information, user and password are incorrect.\n");
+	printf("\n\n\tPorfavor verifica tu información, usuario y/o contraseña son incorrectos.\n");
     }
 
     return(verifier);
@@ -120,9 +120,9 @@ void general_mysql_print_search_result_rows(MYSQL_RES **result){
 
         for(i=0; i<mysql_num_fields(*result); i++){
             if(row[i] != NULL){
-		if(looper == 0) printf("\n\tResult %i:\n\t   Name: %s", result_number, row[i]);
-		if(looper == 1) printf("\n\t   Father surname: %s", row[i]);
-		if(looper == 2) printf("\n\t   Mother surname: %s", row[i]);
+		if(looper == 0) printf("\n\tResultado %i:\n\t   Nombre: %s", result_number, row[i]);
+		if(looper == 1) printf("\n\t   Apellido paterno: %s", row[i]);
+		if(looper == 2) printf("\n\t   Apellido materno: %s", row[i]);
                 if(looper == 3) printf("\n\t   Email: %s", row[i]);
 		looper++;
 		if(looper == 4){
@@ -147,4 +147,73 @@ void general_mysql_add_search_history(MYSQL *mysql, int employee_id, char search
 //    printf("\n\n\t%s\n%i\n", search, employee_id);
 //    printf("\n\n\t%s\n", query);
     
+}
+
+void general_mysql_print_patient_result_rows(MYSQL_RES **result){
+    MYSQL_ROW row;
+    int i = 0, looper = 0, patient_number = 1;
+
+    while(row = mysql_fetch_row(*result)){
+
+        for(i=0; i<mysql_num_fields(*result); i++){
+            if(row[i] != NULL){
+                if(looper == 1) printf("\n\t(%i) Paciente %s:\n\t   Nombre: %s", result_number, row[i-1], row[i]);
+                if(looper == 2) printf("\n\t   Apellido paterno: %s", row[i]);
+                if(looper == 3) printf("\n\t   Apellido materno: %s", row[i]);
+                looper++;
+                if(looper == 4){
+                    looper = 0;
+                    result_number++;
+                }
+            }
+            else printf("\n");
+        }
+        fputc('\n', stdout);
+    }
+
+}
+
+void general_mysql_print_consult_result_rows(MYSQL_RES **result){
+    MYSQL_ROW row;
+    int i = 0, looper = 0, consult_number = 1;
+
+    while(row = mysql_fetch_row(*result)){
+
+        for(i=0; i<mysql_num_fields(*result); i++){
+            if(row[i] != NULL){
+                if(looper == 1) printf("\n\t(%i) Consulta %s:\n\t   Diagnóstico: %s", consult_number, row[i-1], row[i]);
+                if(looper == 2) printf("\n\t   Fecha de consulta: %s", row[i]);
+                looper++;
+                if(looper == 3){
+                    looper = 0;
+                    result_number++;
+                }
+            }
+            else printf("\n");
+        }
+        fputc('\n', stdout);
+    }
+
+}
+
+void general_mysql_print_vaccine_result_rows(MYSQL_RES **result){
+    MYSQL_ROW row;
+    int i = 0, looper = 0, vaccine_number = 1;
+
+    while(row = mysql_fetch_row(*result)){
+
+        for(i=0; i<mysql_num_fields(*result); i++){
+            if(row[i] != NULL){
+                if(looper == 1) printf("\n\t(%i) Vacuna: \n\t   Fecha de vacunación: %s", vaccine_number, row[i-1], row[i]);
+                looper++;
+                if(looper == 2){
+                    looper = 0;
+                    result_number++;
+                }
+            }
+            else printf("\n");
+        }
+        fputc('\n', stdout);
+    }
+
 }
