@@ -18,7 +18,7 @@
  * @returns
         void
 */
-void main_view_login(BROWSER *browser){
+void main_view_login(BROWSER *browser, int hola){
     char password[30], query[200];
     size_t verifier = 0;
     MYSQL_RES *result;

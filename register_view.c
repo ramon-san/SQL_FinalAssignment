@@ -7,14 +7,6 @@
 
 #include "register_view.h"
 
-/*
- *
- * The function menu gives the user admin action posibilities.
- *
-
- * @returns
-        void
-*/
 void register_view_menu(MYSQL *mysql, char option){
     USER user;
     int verifier = 0;

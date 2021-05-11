@@ -7,6 +7,17 @@
 
 #include "patient_controller.h"
 
+/*
+ *
+ * The function shows the user all it's patients.
+ *
+ * @params
+ *      mysql (MYSQL *):
+            This variable contains general MYSQL variable memory address.
+
+ * @returns
+        void
+*/
 void patient_controller_view_patients(MYSQL *mysql, int employee_id){
     char query[400];
     MYSQL_RES *result;
@@ -21,6 +32,17 @@ void patient_controller_view_patients(MYSQL *mysql, int employee_id){
 
 }
 
+/*
+ *
+ * The function shows the user the patient history.
+ *
+ * @params
+ *      mysql (MYSQL *):
+            This variable contains general MYSQL variable memory address.
+
+ * @returns
+        void
+*/
 void patient_controller_patient_history(MYSQL *mysql){
     int patient_id;
     char query[300];
