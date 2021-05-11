@@ -25,7 +25,7 @@ void main_view_login(BROWSER *browser){
     while(verifier == 0){
         printf("\n\tEmail: ");
         scanf("%s", browser->info.email);
-        printf("\n\tPassword: ");
+        printf("\n\tContraseña: ");
         scanf("%s", password);
 
         sprintf(query,"SELECT email, password FROM pf_employees WHERE email = '%s' AND password = '%s'", browser->info.email, password);
@@ -34,7 +34,7 @@ void main_view_login(BROWSER *browser){
         main_controller_save_info(&browser->mysql, &browser->info);
     }
     system("clear");
-    printf("\n\t   Welcome back %s!\n", browser->info.name);
+    printf("\n\t   Gusto en verte %s!\n", browser->info.name);
 
     return;
 }
@@ -50,35 +50,35 @@ void main_view_login(BROWSER *browser){
 void main_view_menu(BROWSER *browser){
     char option = '0';
     
-    while(option != 'E'){
-        printf("\n\tPlease select one of the following options and click [Enter]: \n");
-        printf("\n\t  [A]dmin controls\n\t  [R]egister patient\n\t  [S]earch\n\t  [V]isualize data\n\t  [B]usiness analytics\n\t  [E]xit\n\n   -> ");
+    while(option != 'S'){
+        printf("\n\tPorfavor selecciona una de las siguientes opciones y presiona [Enter]: \n");
+        printf("\n\t  [C]ontroles de admin\n\t  [A]gregar paciente\n\t  [B]úsqueda\n\t  [M]onitoreo de pacientes\n\t  [I]nformación general\n\t  [S]alir\n\n   -> ");
         scanf(" %c", &option);
         option = toupper(option);
 
 
-        if(option == 'E'){
+        if(option == 'S'){
             system("clear");
             printf("\n\tProgram terminated\n\n");
         }
-        else if(option == 'A'){
+        else if(option == 'C'){
             system("clear");
 	    if(browser->info.position == 1) printf("\n\tYou don't have an admin account.\n");
             else admin_view_menu(&browser);
          }
-        else if(option == 'R'){
+        else if(option == 'A'){
             system("clear");
             register_view_menu(&browser->mysql, 'P');
          }
-        else if(option == 'S'){
+        else if(option == 'B'){
             system("clear");
             search_view_menu(&browser);
          }
-        else if(option == 'V'){
+        else if(option == 'M'){
             system("clear");
             printf("\n\tComing soon...\n");
          }
-        else if(option == 'B'){
+        else if(option == 'I'){
             system("clear");
             printf("\n\tComing soon...\n");
          }
