@@ -34,4 +34,8 @@ void general_mysql_print_patient_result_rows(MYSQL_RES **result);
 void general_mysql_print_consult_result_rows(MYSQL_RES **result);
 void general_mysql_print_vaccine_result_rows(MYSQL_RES **result);
 void general_mysql_print_count_result_rows(MYSQL_RES **result);
+void general_mysql_print_full_employee_result_rows(MYSQL_RES **result);
+void general_mysql_print_full_patient_result_rows(MYSQL_RES **result);
+void general_mysql_print_search_history_result_rows(MYSQL_RES **result);
+
 #endif /* general_mysql_h */

@@ -235,5 +235,80 @@ void general_mysql_print_count_result_rows(MYSQL_RES **result){
         }
         fputc('\n', stdout);
     }
+    
+}
 
+void general_mysql_print_full_employee_result_rows(MYSQL_RES **result){
+    MYSQL_ROW row;
+    int i = 0, looper = 0, employee_number = 1;
+
+    while(row = mysql_fetch_row(*result)){
+
+        for(i=0; i<mysql_num_fields(*result); i++){
+            if(row[i] != NULL){
+                if(looper == 1) printf("\n\t(%i) ID %s:\n\t   Nombre: %s", employee_number, row[i-1], row[i]);
+                if(looper == 2) printf("\n\t   Fecha de nacimiento: %s", row[i]);
+                if(looper == 3) printf("\n\t   Teléfono: %s", row[i]);
+                if(looper == 4) printf("\n\t   Email: %s", row[i]);
+                if(looper == 5) printf("\n\t   Contraseña: %s", row[i]);
+                if(looper == 6) printf("\n\t   Tipo de usuario: %s", row[i]);
+                looper++;
+                if(looper == 7){
+                    looper = 0;
+                    employee_number++;
+                }
+            }
+            else printf("\n");
+        }
+        fputc('\n', stdout);
+    }
+    
+}
+
+void general_mysql_print_full_patient_result_rows(MYSQL_RES **result){
+        MYSQL_ROW row;
+        int i = 0, looper = 0, patient_number = 1;
+
+        while(row = mysql_fetch_row(*result)){
+
+            for(i=0; i<mysql_num_fields(*result); i++){
+                if(row[i] != NULL){
+                    if(looper == 1) printf("\n\t(%i) ID %s:\n\t   Nombre: %s", patient_number, row[i-1], row[i]);
+                    if(looper == 2) printf("\n\t   Fecha de nacimiento: %s", row[i]);
+                    if(looper == 3) printf("\n\t   Teléfono: %s", row[i]);
+                    if(looper == 4) printf("\n\t   Email: %s", row[i]);
+                    looper++;
+                    if(looper == 5){
+                        looper = 0;
+                        patient_number++;
+                    }
+                }
+                else printf("\n");
+            }
+            fputc('\n', stdout);
+        }
+    
+}
+
+void general_mysql_print_search_history_result_rows(MYSQL_RES **result){
+    MYSQL_ROW row;
+    int i = 0, looper = 0, search_number = 1;
+
+    while(row = mysql_fetch_row(*result)){
+
+        for(i=0; i<mysql_num_fields(*result); i++){
+            if(row[i] != NULL){
+                if(looper == 1) printf("\n\t(%i) Busqueda %s:\n\t   Búsqueda: %s", search_number, row[i-1], row[i]);
+                if(looper == 2) printf("\n\t   Fecha de búsqueda: %s", row[i]);
+                looper++;
+                if(looper == 3){
+                    looper = 0;
+                    search_number++;
+                }
+            }
+            else printf("\n");
+        }
+        fputc('\n', stdout);
+    }
+    
 }
