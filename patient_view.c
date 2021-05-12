@@ -9,7 +9,7 @@
 
 /*
  *
- * The function menu gives the user action posibilities for patient instructions.
+ * Esta funcion despliega un menu conforme a las acciones a realizar con el paciente.
  *
 
  * @returns

@@ -7,6 +7,24 @@
 
 #include "search_controller.h"
 
+/*
+ *
+ * Esta funcion seleciona el query de buscar a un usaurio.
+ *
+ * @params
+ *      mysql (MYSQL):
+            Variable general de MYSQL.
+        info (SEARCH_INFO):
+            Variable que contiene la informacion de quien se va a buscar
+        emplyee_id (int):
+            Varaible del id del empliado que realiza la busqueda
+        option (char)
+            Variable para deplejar el query.
+
+* @returns
+       void
+*/
+
 void search_controller_search(MYSQL *mysql, SEARCH_INFO info, int employee_id, char option){
     char query[400];
     char concat [100], concat_search[100], search[200];

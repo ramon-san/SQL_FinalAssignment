@@ -10,11 +10,11 @@
 
 /*
  *
- * The function calls all the SQL verifications.
+ * Esta funcion llama a todas las verificaciones de MYSQL .
  *
  * @params
  *      mysql (MYSQL):
-            This is the general MYSQL variable.
+            Variable general de MYSQL.
 
 * @returns
        void
@@ -38,6 +38,20 @@ void general_mysql_connect_mysql_info(MYSQL *mysql){
     return;
 }
 
+/*
+ *
+ * Esta funcion verifica las varaibles para introduccir el querry .
+ *
+ * @params
+ *      mysql (MYSQL):
+            Variable general de MYSQL.
+ *     query (char)
+            Variable que contiene el query a procesar. 
+* @returns
+       void
+*/
+
+
 void general_mysql_use_query(MYSQL *mysql, char *query){
 
     if(mysql_query(mysql, query) ){
@@ -48,6 +62,19 @@ void general_mysql_use_query(MYSQL *mysql, char *query){
     return;
 }
 
+/*
+ *
+ * Esta funcion llama cuando no se logro introduccir.
+ *
+ * @params
+ *      mysql (MYSQL):
+            Variable general de MYSQL.
+
+* @returns
+       void
+*/
+
+
 void general_mysql_get_result(MYSQL *mysql, MYSQL_RES **result, char *query){
 
     general_mysql_use_query(mysql, query);
@@ -57,6 +84,19 @@ void general_mysql_get_result(MYSQL *mysql, MYSQL_RES **result, char *query){
     }
 
 }
+
+/*
+ *
+ * Esta funcion llama a todas las verificaciones de MYSQL .
+ *
+ * @params
+ *      result (MYSQL_RES):
+            Variable Que contiene que paso al hacer el query.
+
+* @returns
+       void
+*/
+
 
 void general_mysql_print_result_rows(MYSQL_RES **result){
     MYSQL_ROW row;
@@ -73,6 +113,23 @@ void general_mysql_print_result_rows(MYSQL_RES **result){
     }
 
 }
+
+/*
+ *
+ * Esta funcion verifica quien esta intentando realizar el query .
+ *
+ * @params
+ *      mysql (MYSQL):
+            Variable general de MYSQL.
+        result(MYSQL_RES):
+            Variable del resultado  que se obtuvo a introduccir el query;
+        query (char):
+            Variable con el query que se ve a correr:
+
+* @returns
+       void
+*/
+
 
 int general_mysql_verify_user(MYSQL *mysql, MYSQL_RES **result, char *query){
     MYSQL_ROW row;
@@ -95,6 +152,22 @@ int general_mysql_verify_user(MYSQL *mysql, MYSQL_RES **result, char *query){
     return(verifier);
 }
 
+/*
+ *
+ * Esta salva la informacion de quien realizo el query .
+ *
+ * @params
+ *      result (MYSQL_RES):
+            Variable con el restultado que se guarda.
+        info   (USER_INFO):
+            Variable que contiene quien realizo la busqued .
+        row    (MYSQL_ROW):
+            Variable que almacenara en una fila el dato.
+
+* @returns
+       void
+*/
+
 void general_mysql_save_info(USER_INFO **info, MYSQL_RES **result){
     MYSQL_ROW row;
     int i;
@@ -111,6 +184,19 @@ void general_mysql_save_info(USER_INFO **info, MYSQL_RES **result){
     }
 
 }
+
+/*
+ *
+ * Esta funcion imprime el resultado del query de busqyeda.
+ *
+ * @params
+ *      result (MYSQL_RES):
+            Variable con el resultado a imprimir de la busqueda.
+
+* @returns
+       void
+*/
+
 
 void general_mysql_print_search_result_rows(MYSQL_RES **result){
     MYSQL_ROW row;

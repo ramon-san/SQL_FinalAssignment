@@ -9,7 +9,7 @@
 
 /*
  *
- * Esta funcion le brinda al usuario un menu para interactuar
+ * Esta funcion 
  *
 
  * @returns
@@ -17,7 +17,6 @@
 */
 void admin_view_menu(BROWSER **browser){
     char option = '0';
-    int trash;
     
     while(option != 'R'){
         printf("\n\tPorfavor selecciona una de las siguientes opciones y da click en [Enter]: \n");
@@ -26,22 +25,17 @@ void admin_view_menu(BROWSER **browser){
         option = toupper(option);
 
 
-        if(option == 'R' && (*browser)->info.position == 2){
+        if(option == 'R'){
             system("clear");
             printf("\n\tDe vuelta en el menú principal...\n");
         }
         else if(option == 'I'){
             system("clear");
-            printf("\n\tVer información de [E]mpleados o [P]acientes: ");
-            scanf(" %c", &option);
-            option = toupper(option);
-            if(option == 'E') admin_controller_get_employees(&(*browser)->mysql);
-            else if(option == 'P') admin_controller_get_patients(&(*browser)->mysql);
-            else printf("\n\tOpción no válida...\n");
+            printf("\n\tComing soon...\n");
          }
         else if(option == 'H'){
             system("clear");
-            admin_controller_get_employee_history(&(*browser)->mysql);
+            printf("\n\tComing soon...\n");
          }
         else if(option == 'A'){
             system("clear");
@@ -49,7 +43,7 @@ void admin_view_menu(BROWSER **browser){
          }
         else if(option == 'M'){
             system("clear");
-            trash = profile_view_menu(&(*browser)->mysql, 3, (*browser)->info.employee_id);
+            printf("\n\tComing soon...\n");
          }
         else{
             system("clear");

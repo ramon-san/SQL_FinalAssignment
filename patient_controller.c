@@ -9,11 +9,13 @@
 
 /*
  *
- * The function shows the user all it's patients.
+ * Esta funcion muestra todos los pacientes con los que cuenta el usuario.
  *
  * @params
  *      mysql (MYSQL *):
-            This variable contains general MYSQL variable memory address.
+            Esta variable contiene varaibles de MYSQL.
+        employee_id (int)
+            Esta variable contiene el id de quien realiza este query
 
  * @returns
         void
@@ -34,11 +36,11 @@ void patient_controller_view_patients(MYSQL *mysql, int employee_id){
 
 /*
  *
- * The function shows the user the patient history.
+ * Esta funcion muestra la informacion de los pacientes.
  *
  * @params
  *      mysql (MYSQL *):
-            This variable contains general MYSQL variable memory address.
+            Esta varaible contiene variables globales de MYSQL.
 
  * @returns
         void

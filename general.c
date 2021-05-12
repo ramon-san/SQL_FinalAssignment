@@ -9,15 +9,15 @@
 
 /*
  *
- * The function verifies the date format.
+ * Esta funcion verifica como se introdujeron los datos de la fecha.
  *
  * @params
  *      date (string):
-            This is the date the user is trying to add.
+            Es la fecha que el usuario esta añadiendo.
 
  * @returns
         verifier (size_t)
-            This is numeric variable verifies the function's output.
+            Es la variable numerica que sera enviada a la funcion.
 */
 size_t verify_date_format(char date[11]){
     char day[3], month[4], year[6];
@@ -48,19 +48,19 @@ size_t verify_date_format(char date[11]){
 
 /*
  *
- * The function verifies the int format.
+ * Esta funcion verifica el digito introduccido.
  *
  * @params
  *      to_verify (int):
-            This is the int the user is trying to add.
+            Esta es la varaible que esta introduciendo el usuario.
         min (int):
-            This is the minimum value the int can recibe.
+            El minimo de la variable que se puede introduccir.
         max (int):
-            This is the maximum value the int can recibe.
+            El maximo de la variable que se puede introduccir..
 
  * @returns
         verifier (size_t)
-            This is numeric variable verifies the function's output.
+            Esta es la varible ya rectificada que se introduccira.
 */
 size_t verify_int_format(int to_verify, int min, int max){
     size_t verifier = 1;
@@ -75,15 +75,15 @@ size_t verify_int_format(int to_verify, int min, int max){
 
 /*
  *
- * The function verifies the int format.
+ * Esta funcion verifica el formato de la variable.
  *
  * @params
  *      phone (string):
-            This is the string that contains the phone number.
+            Esta es la variable a insertar con el numero de telefono.
 
  * @returns
         verifier (size_t)
-            This is numeric variable verifies the function's output.
+            Es la varaible ya verificada.
 */
 size_t verify_phone_number(char phone[11]){
     size_t i, verifier = 1;
