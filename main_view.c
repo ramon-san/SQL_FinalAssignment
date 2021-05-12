@@ -58,7 +58,7 @@ void main_view_menu(BROWSER *browser){
     
     while(option != 'S'){
         printf("\n\tPorfavor selecciona una de las siguientes opciones y presiona [Enter]: \n");
-        printf("\n\t  [C]ontroles de admin\n\t  [A]gregar paciente\n\t  [B]úsqueda\n\t  [M]onitoreo de pacientes\n\t  [I]nformación general\n\t  [P]erfil\n\t  [S]alir\n\n   -> ");
+        printf("\n\t  [C]ontroles de admin\n\t  [A]gregar paciente\n\t  [B]úsqueda\n\t  [M]onitoreo de pacientes\n\t  [E]stadísticos\n\t  [P]erfil\n\t  [S]alir\n\n   -> ");
         scanf(" %c", &option);
         option = toupper(option);
 
@@ -84,7 +84,7 @@ void main_view_menu(BROWSER *browser){
             system("clear");
             patient_view_menu(&browser);
          }
-        else if(option == 'I'){
+        else if(option == 'E'){
             system("clear");
             analytics_view_menu(&browser);
          }

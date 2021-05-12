@@ -56,7 +56,7 @@ size_t verify_date_format(char date[11]){
         min (int):
             El minimo de la variable que se puede introduccir.
         max (int):
-            El maximo de la variable que se puede introduccir..
+            El maximo de la variable que se puede introduccir.
 
  * @returns
         verifier (size_t)

@@ -20,7 +20,7 @@ void patient_view_menu(BROWSER **browser){
     
     while(option != 'R'){
         printf("\n\tPorfavor selecciona una de las siguientes opciones y da click en [Enter]: \n");
-        printf("\n\t  [V]er pacientes\n\t  [H]istorial de paciente\n\t  [A]gregar consulta\n\t  [R]egresar al menú principal\n\n   -> ");
+        printf("\n\t  [V]er mis pacientes\n\t  [H]istorial de paciente\n\t  [A]gregar consulta\n\t  [R]egresar al menú principal\n\n   -> ");
         scanf(" %c", &option);
         option = toupper(option);
 

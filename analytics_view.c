@@ -25,7 +25,7 @@ void analytics_view_menu(BROWSER **browser){
         }
         else if(option == 'E'){
             system("clear");
-            strcpy(query, "SELECT diagnosis, COUNT(diagnosis) FROM pf_consultations GROUP BY(diagnosis)");
+            strcpy(query, "SELECT diagnosis, COUNT(diagnosis) FROM pf_consultations GROUP BY(diagnosis) ORDER BY(COUNT(diagnosis)) DESC LIMIT 1");
             general_mysql_get_result(&(*browser)->mysql, &result, query);
             general_mysql_print_count_result_rows(&result);
             printf("\n\n\tPresiona [Enter] para continuar.\n");
