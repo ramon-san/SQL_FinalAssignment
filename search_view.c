@@ -7,6 +7,21 @@
 
 #include "search_view.h"
 
+/*
+ *
+ * Esta funcion permite al usuario a realizar una busqueda de un usuario o pasiente en concreto dependiendo si se va a buscar por su 
+ * apellido materno, paterno o fecha de nacimiento.
+ *
+ *
+ * @params
+ *      browser (BROWSER *):
+            Esta variable permite completar la busqueda con el querry
+
+ * @returns
+        void
+*/
+
+
 void search_view_menu(BROWSER **browser){
     char option, validator, name[30], email[30], date_of_birth[11];
     size_t verifier = 0;
