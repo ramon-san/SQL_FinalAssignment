@@ -13,6 +13,7 @@
 #include <ctype.h>
 #include "general_mysql.h"
 #include "register_view.h"
+#include "profile_view.h"
 #include "admin_controller.h"
 
 /* Function prototypes */

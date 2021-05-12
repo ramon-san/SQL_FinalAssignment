@@ -17,6 +17,7 @@
 */
 void admin_view_menu(BROWSER **browser){
     char option = '0';
+    int trash;
     
     while(option != 'R'){
         printf("\n\tPorfavor selecciona una de las siguientes opciones y da click en [Enter]: \n");
@@ -25,7 +26,7 @@ void admin_view_menu(BROWSER **browser){
         option = toupper(option);
 
 
-        if(option == 'R'){
+        if(option == 'R' && (*browser)->info.position == 2){
             system("clear");
             printf("\n\tDe vuelta en el menú principal...\n");
         }
@@ -48,7 +49,7 @@ void admin_view_menu(BROWSER **browser){
          }
         else if(option == 'M'){
             system("clear");
-            profile_view_menu(&(*browser)->mysql, 3, 0);
+            trash = profile_view_menu(&(*browser)->mysql, 3, (*browser)->info.employee_id);
          }
         else{
             system("clear");

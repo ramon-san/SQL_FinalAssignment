@@ -90,7 +90,7 @@ void main_view_menu(BROWSER *browser){
          }
         else if(option == 'P'){
             system("clear");
-            profile_view_menu(&browser, browser->info.position, browser->info.employee_id);
+            browser->info.position = profile_view_menu(&browser->mysql, browser->info.position, browser->info.employee_id);
          }
         else{
             system("clear");

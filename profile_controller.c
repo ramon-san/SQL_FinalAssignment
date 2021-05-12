@@ -11,7 +11,9 @@ void profile_controller_modify(MYSQL *mysql, MODIFY_INFO info, char to_change, i
     char query[400];
     char concat [100];
 
-    search[0] = '\0';
+    query[0] = '\0';
+    concat[0] = '\0';
+
     if(to_change == 'P') strcpy(query, "UPDATE pf_patients SET ");
     if(to_change == 'E') strcpy(query, "UPDATE pf_employees SET ");
     
@@ -85,19 +87,19 @@ void profile_controller_modify(MYSQL *mysql, MODIFY_INFO info, char to_change, i
     }
     strcpy(concat, " WHERE ");
     strcat(query, concat);
-    if(option == 'P'){
-        sprintf("patient_id = %i", id_to_change);
+    if(to_change == 'P'){
+        sprintf(concat, "patient_id = %i", id_to_change);
         strcat(query, concat);
     }
-    else if(option == 'E'){
-        sprintf("employee_id = %i", id_to_change);
+    else if(to_change == 'E'){
+        sprintf(concat, "employee_id = %i", id_to_change);
         strcat(query, concat);
     }
 
-//    general_mysql_use_query(mysql, query);
-    printf("\n\n\t%s\n", query);
+    general_mysql_use_query(mysql, query);
     system("clear");
-    printf("\n\tLos cambios se realizaron correctamente, presione [Enter] para continuar.\n");
+//    printf("\n\n\t%s\n", query);
+    printf("\n\tLos cambios se realizaron correctamente!\n");
 
     return;
 }

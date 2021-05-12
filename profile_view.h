@@ -11,9 +11,10 @@
 #include <stdio.h>
 #include <ctype.h>
 #include "general_mysql.h"
+#include "profile_controller.h"
 
 /* Function prototypes */
 
-void profile_view_modify_user(MYSQL *mysql, int position, int employee_id);
+int profile_view_menu(MYSQL *mysql, int position, int employee_id);
 
 #endif /* profile_view_h */
