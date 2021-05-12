@@ -31,16 +31,16 @@ void admin_view_menu(BROWSER **browser){
         }
         else if(option == 'I'){
             system("clear");
-            printf("\n\tVer información de [E]mpleados o [P]acientes: ")
+            printf("\n\tVer información de [E]mpleados o [P]acientes: ");
             scanf(" %c", &option);
             option = toupper(option);
-            if(option == 'E') admin_controller_get_employees((*browser)->mysql);
-            else if(option == 'P') admin_controller_get_patients((*browser)->mysql);
+            if(option == 'E') admin_controller_get_employees(&(*browser)->mysql);
+            else if(option == 'P') admin_controller_get_patients(&(*browser)->mysql);
             else printf("\n\tOpción no válida...\n");
          }
         else if(option == 'H'){
             system("clear");
-            admin_controller_get_employee_history((*browser)->mysql);
+            admin_controller_get_employee_history(&(*browser)->mysql);
          }
         else if(option == 'A'){
             system("clear");
