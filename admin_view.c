@@ -9,7 +9,7 @@
 
 /*
  *
- * The function menu gives the user admin action posibilities.
+ * Esta funcion le brinda al usuario un menu para interactuar
  *
 
  * @returns
