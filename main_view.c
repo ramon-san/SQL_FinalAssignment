@@ -9,11 +9,11 @@
 
 /*
  *
- * The function allows the user to log in.
+ * Esta funcion permite acceder al usuario al sistema.
  *
  * @params
  *      browser (BROWSER *):
-            This variable contains the browser info.
+            Esta variable contiene la informacion de quien desea acceder.
 
  * @returns
         void
@@ -44,11 +44,11 @@ void main_view_login(BROWSER *browser, int hola){
 
 /*
  *
- * The function menu gives the user action posibilities.
+ * Esta funcion despliega un menu con el cual interactua el usuario.
  *
  * @params
  *      browser (BROWSER *):
-            This variable contains the browser info.
+            Esta variable contiene que opcion se desea realizar.
 
  * @returns
         void

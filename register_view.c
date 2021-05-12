@@ -7,6 +7,18 @@
 
 #include "register_view.h"
 
+/*
+ *
+ * Esta funcion llama a todas las verificaciones de MYSQL .
+ *
+ * @params
+ *      mysql (MYSQL):
+            Variable general de MYSQL.
+
+* @returns
+       void
+*/
+
 void register_view_menu(MYSQL *mysql, char option){
     USER user;
     int verifier = 0;

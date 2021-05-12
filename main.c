@@ -9,6 +9,16 @@
 #include "main_view.h"
 #include "general_mysql.h"
 
+/*
+ *
+ * Esta funcion llama a las demas funciones de los archivos .
+ *
+
+
+* @returns
+       void
+*/
+
 int main(int argc, char *argv[]){
     BROWSER browser;
 
