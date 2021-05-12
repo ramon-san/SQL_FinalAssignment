@@ -14,7 +14,7 @@ void analytics_view_menu(BROWSER **browser){
     
     while(option != 'R'){
         printf("\n\tPorfavor selecciona una de las siguientes opciones y da click en [Enter]: \n");
-        printf("\n\t  [E]nfermedades general\n\t  [P]aciente con más consultas\n\t  [V]acuna más usada\n\t  [R]egresar al menú principal\n\n   -> ");
+        printf("\n\t  [E]nfermedad más común\n\t  [P]aciente con más consultas\n\t  [V]acuna más usada\n\t  [R]egresar al menú principal\n\n   -> ");
         scanf(" %c", &option);
         option = toupper(option);
 

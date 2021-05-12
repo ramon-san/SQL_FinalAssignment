@@ -88,9 +88,9 @@ void patient_controller_add_consultation(MYSQL *mysql, int employee_id){
     printf("\n\t  Niveles de oxígeno: ");
     scanf(" %i", &oxygen_level);
     printf("\n\t  Diagnóstico: ");
-    scanf("%s", diagnosis);
+    scanf("  %[^\n]", diagnosis);
     printf("\n\t  Tratamiento: ");
-    scanf("%s", treatment);
+    scanf("  %[^\n]", treatment);
     printf("\n\t  Costo de consulta: ");
     scanf(" %li", &cost);
     
@@ -105,7 +105,7 @@ void patient_controller_add_consultation(MYSQL *mysql, int employee_id){
         scanf(" %c", &option);
         option = toupper(option);
         if(option == 'E'){
-            printf("\n\t  Número de vacuna: ");
+            printf("\n\t  ID de vacuna: ");
             scanf(" %i", &vaccine_id);
             
             sprintf(query, "INSERT INTO pf_patientsVaccines (vaccine_id, patient_id, date_of_vaccine) VALUES(%i, %i, '%s')", vaccine_id, patient_id, date_of_consultation);
@@ -115,7 +115,7 @@ void patient_controller_add_consultation(MYSQL *mysql, int employee_id){
         }
         else if(option == 'N'){
             printf("\n\t  Nombre de vacuna: ");
-            scanf(" %s", vaccine);
+            scanf("  %[^\n]", vaccine);
             printf("\n\t  Costo de vacuna: ");
             scanf(" %li", &vaccine_cost);
             sprintf(query, "INSERT INTO pf_vaccines (vaccine, cost) VALUES('%s', %li)", vaccine, vaccine_cost);

@@ -101,7 +101,7 @@ int profile_view_menu(MYSQL *mysql, int position, int employee_id){
             scanf(" %s", info.email);
         }
         if(to_change == 'E'){
-            printf("\n\n\t¿Quiere cambiar la contraseña? [S]i, [N]o: ");
+            printf("\n\t¿Quiere cambiar la contraseña? [S]i, [N]o: ");
             scanf(" %c", &validator);
             validator = toupper(validator);
             if(validator == 'S'){
