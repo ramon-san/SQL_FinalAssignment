@@ -20,8 +20,6 @@
  * @returns
         void
 */
-
-
 void search_view_menu(BROWSER **browser){
     char option, validator, name[30], email[30], date_of_birth[11];
     size_t verifier = 0;
