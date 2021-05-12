@@ -22,28 +22,28 @@ void register_view_menu(MYSQL *mysql, char option){
     
     printf("\n\n\tPorfavor llena la siguiente información y presiona [Enter]: \n");
     printf("\n\t  Nombre: ");
-    scanf("%s", user.name);
+    scanf(" %[^\n]", user.name);
     printf("\n\t  Apellido paterno: ");
-    scanf("%s", user.father_surname);
+    scanf(" %[^\n]", user.father_surname);
     printf("\n\t  Apellido materno: ");
-    scanf("%s", user.mother_surname);
+    scanf(" %[^\n]", user.mother_surname);
     while(verifier == 0){
         printf("\n\t  Fecha de nacimiento (YYYY/MM/DD): ");
         scanf("%s", user.date_of_birth);
         verifier = verify_date_format(user.date_of_birth);
     }
     printf("\n\t  Email: ");
-    scanf("%s", user.email);
+    scanf(" %s", user.email);
     verifier = 0;
     while(verifier == 0){
-        printf("\n\t  Teléfono: ");
-        scanf("%s", user.phone);
+        printf("\n\t  Teléfono (10 números): ");
+        scanf(" %s", user.phone);
         verifier = verify_phone_number(user.phone);
     }
     sprintf(concat, "VALUES('%s', '%s', '%s', '%s', '%s', '%s'", user.name, user.father_surname, user.mother_surname, user.date_of_birth, user.email, user.phone);
     if(option == 'U'){
         printf("\n\t  Contraseña: ");
-        scanf("%s", user.password);
+        scanf(" %s", user.password);
         verifier = 0;
         while(verifier == 0){
             printf("\n\t  Posición (doctor = 1, admin = 2): ");

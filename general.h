@@ -29,6 +29,12 @@ typedef struct search_info{
     size_t field_number;
 }SEARCH_INFO;
 
+typedef struct modify_info{
+    char name[30], father_surname[30], mother_surname[30], date_of_birth[11], email[30], phone_number[11], password[30];
+    int user_type_id;
+    size_t field_number;
+}MODIFY_INFO;
+
 /* Function prototypes */
 
 size_t verify_date_format(char date[11]);

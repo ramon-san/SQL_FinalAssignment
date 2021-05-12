@@ -48,7 +48,7 @@ void admin_view_menu(BROWSER **browser){
          }
         else if(option == 'M'){
             system("clear");
-            printf("\n\tComing soon...\n");
+            profile_view_menu(&(*browser)->mysql, 3, 0);
          }
         else{
             system("clear");
