@@ -14,7 +14,12 @@
  * @params
  *      mysql (MYSQL):
             Variable general de MYSQL.
-
+        option (char)
+            Variable del la opocion a realizar
+        query (char)
+            Variable con el querry que se va a ejecutar
+        concat (char):
+            contine la union de varios datos para unirlos y  meterlos al query
 * @returns
        void
 */

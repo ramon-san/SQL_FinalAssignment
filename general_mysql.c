@@ -69,6 +69,10 @@ void general_mysql_use_query(MYSQL *mysql, char *query){
  * @params
  *      mysql (MYSQL):
             Variable general de MYSQL.
+        result (MYSQL_RES)
+            Variable que contiene si el query se logro ejecutar
+        query (char)
+            Variable que contiene el query a ejecutar
 
 * @returns
        void

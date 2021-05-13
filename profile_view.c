@@ -7,6 +7,29 @@
 
 #include "profile_view.h"
 
+/*
+ *
+ * Esta funcion despliega un menu para selecionar que se desea modificar.
+ *
+ * @params
+ *      mysql (MYSQL *):
+            Esta varaible contiene variables globales de MYSQL.
+        position (int):
+            Esta variable contiene la posicion de quien va a editar
+        emplyee_id (int)
+            Esta variable  es  el id de quein reliza ela modificacion
+        validator (char):
+            Variable con la validacion del cambio
+        to_change (char):
+            Varable que contiene los datos que se van a cambiar:
+        info  (MODIFY_INFO):
+            Varaible con la informacion de los datos a cambiar.
+
+ * @returns
+        void
+*/
+
+
 int profile_view_menu(MYSQL *mysql, int position, int employee_id){
     char validator, to_change;
     int id_to_change, type_change;

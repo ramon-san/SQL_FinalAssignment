@@ -16,6 +16,8 @@
  * @params
  *      browser (BROWSER *):
             Esta variable permite completar la busqueda con el query
+        info (SEARCH_INFO):
+            Contiene la informacion que se va a buscar del usuario.
 
  * @returns
         void

@@ -7,6 +7,23 @@
 
 #include "main_controller.h"
 
+/*
+ *
+ * Esta funcion guarda el contenido del query para dar entrar a la plataforma .
+ *
+ * @params
+ *      mysql (MYSQL):
+            Variable general de MYSQL.
+        query (char):
+            Varaible que contiene el query a ejecutar.
+        info (USER_INFO):
+            Variable que contiene la informacion del usuario que desea acceder
+        
+* @returns
+       void
+*/
+
+
 void main_controller_save_info(MYSQL *mysql, USER_INFO *info){
     MYSQL_RES *result;
     char query[200];

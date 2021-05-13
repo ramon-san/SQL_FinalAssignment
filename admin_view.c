@@ -11,6 +11,8 @@
  *
  * Esta funcion le brinda al usuario un menu para interactuar
  *
+          browser (BROWSER):
+                Variable que contien la opcion que se va a realizar
 
  * @returns
         void

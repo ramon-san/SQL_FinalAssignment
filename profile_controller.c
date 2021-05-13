@@ -7,6 +7,24 @@
 
 #include "profile_controller.h"
 
+/*
+ *
+ * Esta funcion te permite modificar algun perfil de un usuario.
+ *
+ * @params
+ *      mysql (MYSQL *):
+            Esta varaible contiene variables globales de MYSQL.
+        info (MODIFY_INFO):
+            Variablr que contiene los cambios pertinentes a realizar
+        to_change (char)
+            Variable que contiene lo que se va a cambiar
+        id_to_change (int) 
+            Variable que contiene el id del usuario que le haran cambios
+
+ * @returns
+        void
+*/
+
 void profile_controller_modify(MYSQL *mysql, MODIFY_INFO info, char to_change, int id_to_change){
     char query[400];
     char concat [100];

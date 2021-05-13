@@ -7,6 +7,22 @@
 
 #include "admin_controller.h"
 
+/*
+ *
+ * Esta funcion da de alto a los a otros usuarios con el tipo que se dara de alta .
+ *
+ * @params
+ *      mysql (MYSQL):
+            Variable general de MYSQL.
+        query (char):
+            Varaible que contiene el query a ejecutar.
+        user_type_id (int):
+            Variable que contiene el tipo de usuario que se dara de alta
+
+* @returns
+       void
+*/
+
 void admin_controller_get_employees(MYSQL *mysql){
     char query[300];
     int user_type_id;
@@ -25,6 +41,23 @@ void admin_controller_get_employees(MYSQL *mysql){
     
 }
 
+/*
+ *
+ * Esta funcion seleciona al paciente que se esta buscando.
+ *
+ * @params
+ *      mysql (MYSQL):
+            Variable general de MYSQL.
+        query (char):
+            Varaible que contiene el query a ejecutar.
+        result (MYSQL_RES):
+            Variable que contiene el tipo de usuario que se dara de alta
+
+* @returns
+       void
+*/
+
+
 void admin_controller_get_patients(MYSQL *mysql){
     char query[300] = "SELECT patient_id, CONCAT(name, \" \", father_surname, \" \", mother_surname), date_of_birth, phone_number, email FROM pf_patients";
     MYSQL_RES *result;
@@ -37,6 +70,23 @@ void admin_controller_get_patients(MYSQL *mysql){
     system("clear");
     
 }
+
+/*
+ *
+ * Esta funcion Imprime los datos las empleado que realizo alguna busqueda.
+ *
+ * @params
+ *      mysql (MYSQL):
+            Variable general de MYSQL.
+        query (char):
+            Varaible que contiene el query a ejecutar.
+        emplyee_id (int):
+            Variable que contiene el ID del empleado se esta buscando
+
+* @returns
+       void
+*/
+
 
 void admin_controller_get_employee_history(MYSQL *mysql){
     char query[300];

@@ -11,6 +11,8 @@
  *
  * Esta funcion despliega un menu conforme a las acciones a realizar con el paciente.
  *
+        brower (BROWSER)
+          Variavle que contiene la opocion a ejecutar
 
  * @returns
         void

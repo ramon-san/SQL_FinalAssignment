@@ -68,6 +68,21 @@ void patient_controller_patient_history(MYSQL *mysql){
 
 }
 
+/*
+ *
+ * Esta funcion muestra la informacion de los pacientes.
+ *
+ * @params
+ *      mysql (MYSQL *):
+            Esta varaible contiene variables globales de MYSQL.
+        emplyee_id (int):
+            Esta variable contiene por el id del empleado que reliza la consulta
+
+ * @returns
+        void
+*/
+
+
 void patient_controller_add_consultation(MYSQL *mysql, int employee_id){
     int blood_pressure, oxygen_level, patient_id, vaccine_id, verifier = 0;
     long int cost, vaccine_cost;

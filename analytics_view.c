@@ -7,6 +7,23 @@
 
 #include "analytics_view.h"
 
+/*
+ *
+ * Esta funcion da un menu para generar los datos de analizis.
+ *
+ * @params
+ *      browser (BROWSER):
+            Variable que contiene la opocion del menu a ejecutar.
+        query (char):
+            Varaible que contiene el query a ejecutar.
+        result (MYSQL_RES):
+            Variable que contiene el resultado de si se logro hacer el query
+
+* @returns
+       void
+*/
+
+
 void analytics_view_menu(BROWSER **browser){
     char option = '0';
     char query[300];
