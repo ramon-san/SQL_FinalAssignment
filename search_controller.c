@@ -24,7 +24,6 @@
 * @returns
        void
 */
-
 void search_controller_search(MYSQL *mysql, SEARCH_INFO info, int employee_id, char option){
     char query[400];
     char concat [100], concat_search[100], search[200];

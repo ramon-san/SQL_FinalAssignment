@@ -23,7 +23,6 @@
 * @returns
        void
 */
-
 void register_view_menu(MYSQL *mysql, char option){
     USER user;
     int verifier = 0;

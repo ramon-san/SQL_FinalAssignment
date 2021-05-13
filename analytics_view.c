@@ -22,8 +22,6 @@
 * @returns
        void
 */
-
-
 void analytics_view_menu(BROWSER **browser){
     char option = '0';
     char query[300];

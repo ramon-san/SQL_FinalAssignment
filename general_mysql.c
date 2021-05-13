@@ -16,7 +16,7 @@
  *      mysql (MYSQL):
             Variable general de MYSQL.
 
-* @returns
+ * @returns
        void
 */
 void general_mysql_connect_mysql_info(MYSQL *mysql){
@@ -47,11 +47,9 @@ void general_mysql_connect_mysql_info(MYSQL *mysql){
             Variable general de MYSQL.
  *     query (char)
             Variable que contiene el query a procesar. 
-* @returns
+ * @returns
        void
 */
-
-
 void general_mysql_use_query(MYSQL *mysql, char *query){
 
     if(mysql_query(mysql, query) ){
@@ -74,11 +72,9 @@ void general_mysql_use_query(MYSQL *mysql, char *query){
         query (char)
             Variable que contiene el query a ejecutar
 
-* @returns
+ * @returns
        void
 */
-
-
 void general_mysql_get_result(MYSQL *mysql, MYSQL_RES **result, char *query){
 
     general_mysql_use_query(mysql, query);
@@ -97,11 +93,9 @@ void general_mysql_get_result(MYSQL *mysql, MYSQL_RES **result, char *query){
  *      result (MYSQL_RES):
             Variable Que contiene que paso al hacer el query.
 
-* @returns
+ * @returns
        void
 */
-
-
 void general_mysql_print_result_rows(MYSQL_RES **result){
     MYSQL_ROW row;
     int i;
@@ -130,11 +124,9 @@ void general_mysql_print_result_rows(MYSQL_RES **result){
         query (char):
             Variable con el query que se ve a correr:
 
-* @returns
+ * @returns
        void
 */
-
-
 int general_mysql_verify_user(MYSQL *mysql, MYSQL_RES **result, char *query){
     MYSQL_ROW row;
     int verifier=0;
@@ -168,10 +160,9 @@ int general_mysql_verify_user(MYSQL *mysql, MYSQL_RES **result, char *query){
         row    (MYSQL_ROW):
             Variable que almacenara en una fila el dato.
 
-* @returns
+ * @returns
        void
 */
-
 void general_mysql_save_info(USER_INFO **info, MYSQL_RES **result){
     MYSQL_ROW row;
     int i;
@@ -197,11 +188,9 @@ void general_mysql_save_info(USER_INFO **info, MYSQL_RES **result){
  *      result (MYSQL_RES):
             Variable con el resultado a imprimir de la busqueda.
 
-* @returns
+ * @returns
        void
 */
-
-
 void general_mysql_print_search_result_rows(MYSQL_RES **result){
     MYSQL_ROW row;
     int i = 0, looper = 0, result_number = 1;
@@ -227,6 +216,21 @@ void general_mysql_print_search_result_rows(MYSQL_RES **result){
 
 }
 
+/*
+ *
+ * Esta funcion agrega la busqueda realizada al historial.
+ *
+ * @params
+ *      mysql (MYSQL):
+            Variable general de MYSQL.
+        employee_id (int):
+            ID of the employee we're looking at.
+        search (string):
+            The search the user made.
+
+* @returns
+       void
+*/
 void general_mysql_add_search_history(MYSQL *mysql, int employee_id, char search[200]){
     char query[400] = "INSERT INTO pf_searches (search, date_of_search, employee_id) VALUES(";
     char concat[200];
@@ -237,6 +241,17 @@ void general_mysql_add_search_history(MYSQL *mysql, int employee_id, char search
     
 }
 
+/*
+ *
+ * Esta funcion imprime el resultado del query con formato de paciente (no total).
+ *
+ * @params
+ *      result (MYSQL_RES):
+            Variable con el resultado a imprimir de la busqueda.
+
+ * @returns
+       void
+*/
 void general_mysql_print_patient_result_rows(MYSQL_RES **result){
     MYSQL_ROW row;
     int i = 0, looper = 0, patient_number = 1;
@@ -261,6 +276,17 @@ void general_mysql_print_patient_result_rows(MYSQL_RES **result){
 
 }
 
+/*
+ *
+ * Esta funcion imprime el resultado del query con formato de consulta.
+ *
+ * @params
+ *      result (MYSQL_RES):
+            Variable con el resultado a imprimir de la busqueda.
+
+ * @returns
+       void
+*/
 void general_mysql_print_consult_result_rows(MYSQL_RES **result){
     MYSQL_ROW row;
     int i = 0, looper = 0, consult_number = 1;
@@ -284,6 +310,17 @@ void general_mysql_print_consult_result_rows(MYSQL_RES **result){
 
 }
 
+/*
+ *
+ * Esta funcion imprime el resultado del query con formato de vacuna.
+ *
+ * @params
+ *      result (MYSQL_RES):
+            Variable con el resultado a imprimir de la busqueda.
+
+ * @returns
+       void
+*/
 void general_mysql_print_vaccine_result_rows(MYSQL_RES **result){
     MYSQL_ROW row;
     int i = 0, looper = 0, vaccine_number = 1;
@@ -306,6 +343,17 @@ void general_mysql_print_vaccine_result_rows(MYSQL_RES **result){
 
 }
 
+/*
+ *
+ * Esta funcion imprime el resultado del query con formato de contador.
+ *
+ * @params
+ *      result (MYSQL_RES):
+            Variable con el resultado a imprimir de la busqueda.
+
+ * @returns
+       void
+*/
 void general_mysql_print_count_result_rows(MYSQL_RES **result){
     MYSQL_ROW row;
     int i = 0, looper = 0, count_number = 1;
@@ -328,6 +376,17 @@ void general_mysql_print_count_result_rows(MYSQL_RES **result){
     
 }
 
+/*
+ *
+ * Esta funcion imprime el resultado del query con formato de empleado.
+ *
+ * @params
+ *      result (MYSQL_RES):
+            Variable con el resultado a imprimir de la busqueda.
+
+ * @returns
+       void
+*/
 void general_mysql_print_full_employee_result_rows(MYSQL_RES **result){
     MYSQL_ROW row;
     int i = 0, looper = 0, employee_number = 1;
@@ -355,6 +414,17 @@ void general_mysql_print_full_employee_result_rows(MYSQL_RES **result){
     
 }
 
+/*
+ *
+ * Esta funcion imprime el resultado del query con formato de paciente (todos los datos).
+ *
+ * @params
+ *      result (MYSQL_RES):
+            Variable con el resultado a imprimir de la busqueda.
+
+ * @returns
+       void
+*/
 void general_mysql_print_full_patient_result_rows(MYSQL_RES **result){
         MYSQL_ROW row;
         int i = 0, looper = 0, patient_number = 1;
@@ -380,6 +450,17 @@ void general_mysql_print_full_patient_result_rows(MYSQL_RES **result){
     
 }
 
+/*
+ *
+ * Esta funcion imprime el resultado del query con formato de historial.
+ *
+ * @params
+ *      result (MYSQL_RES):
+            Variable con el resultado a imprimir de la busqueda.
+
+ * @returns
+       void
+*/
 void general_mysql_print_search_history_result_rows(MYSQL_RES **result){
     MYSQL_ROW row;
     int i = 0, looper = 0, search_number = 1;

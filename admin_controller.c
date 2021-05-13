@@ -22,7 +22,6 @@
 * @returns
        void
 */
-
 void admin_controller_get_employees(MYSQL *mysql){
     char query[300];
     int user_type_id;
@@ -56,8 +55,6 @@ void admin_controller_get_employees(MYSQL *mysql){
 * @returns
        void
 */
-
-
 void admin_controller_get_patients(MYSQL *mysql){
     char query[300] = "SELECT patient_id, CONCAT(name, \" \", father_surname, \" \", mother_surname), date_of_birth, phone_number, email FROM pf_patients";
     MYSQL_RES *result;
@@ -86,8 +83,6 @@ void admin_controller_get_patients(MYSQL *mysql){
 * @returns
        void
 */
-
-
 void admin_controller_get_employee_history(MYSQL *mysql){
     char query[300];
     int employee_id;

@@ -81,8 +81,6 @@ void patient_controller_patient_history(MYSQL *mysql){
  * @returns
         void
 */
-
-
 void patient_controller_add_consultation(MYSQL *mysql, int employee_id){
     int blood_pressure, oxygen_level, patient_id, vaccine_id, verifier = 0;
     long int cost, vaccine_cost;

@@ -24,7 +24,6 @@
  * @returns
         void
 */
-
 void profile_controller_modify(MYSQL *mysql, MODIFY_INFO info, char to_change, int id_to_change){
     char query[400];
     char concat [100];

@@ -22,8 +22,6 @@
 * @returns
        void
 */
-
-
 void main_controller_save_info(MYSQL *mysql, USER_INFO *info){
     MYSQL_RES *result;
     char query[200];

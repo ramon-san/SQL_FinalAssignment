@@ -28,8 +28,6 @@
  * @returns
         void
 */
-
-
 int profile_view_menu(MYSQL *mysql, int position, int employee_id){
     char validator, to_change;
     int id_to_change, type_change;
